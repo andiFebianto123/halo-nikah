@@ -10,15 +10,10 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 
-<<<<<<< HEAD
-//
-
-=======
->>>>>>> 964da298a0af30e69a531e4dbc89c3bd84cc8f1c
 class ApiCoreController extends Controller
 {
     function showProvince(Request $request){
-        
+        // test git
         $params = [];
         if($request->name != null){
             $params['name'] = $request->name;
