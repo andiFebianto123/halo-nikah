@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
 
+//
+
 class ApiCoreController extends Controller
 {
     function showProvince(Request $request){
