@@ -69,15 +69,15 @@
                         </div>
                         <!-- Header User End -->
                         <!-- Header Cart Start -->
-                        <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
+                        {{-- <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
                             <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                            <span class="ec-header-count">4</span>
-                        </a>
+                            <span class="ec-header-count">0</span>
+                        </a> --}}
                         <!-- Header Cart End -->
                         <!-- Header Cart Start -->
                         <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
                             <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
-                            <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
+                            <span class="ec-header-count ec-cart-count cart-count-lable">0</span>
                         </a>
                         <!-- Header Cart End -->
                         <!-- Header menu Start -->
@@ -133,15 +133,15 @@
                             </div>
                             <!-- Header User End -->
                             <!-- Header wishlist Start -->
-                            <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
+                            {{-- <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                <span class="ec-header-count">4</span>
-                            </a>
+                                <span class="ec-header-count">0</span>
+                            </a> --}}
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
                                 <div class="header-icon"><i class="fi-rr-shopping-basket"></i></div>
-                                <span class="ec-header-count ec-cart-count cart-count-lable">3</span>
+                                <span class="ec-header-count ec-cart-count cart-count-lable">0</span>
                             </a>
                             <!-- Header Cart End -->
                         </div>

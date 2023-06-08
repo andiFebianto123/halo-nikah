@@ -29,6 +29,13 @@ use App\Http\Controllers\Admin\SpecialProductController;
 // Frontend
 Route::get('home', [HomeController::class, 'index']);
 
+// API
+Route::prefix('api')->group(function(){
+    Route::name('api.')->group(function(){
+        Route::post('get-product-detail', [ProductController::class, 'get_product'])->name('product');
+    });
+});
+
 
 // Backend
 Route::prefix('admin')->group(function () {

@@ -38,6 +38,21 @@ if(! function_exists('product_rating')){
     }
 }
 
+if(! function_exists('product_rating_2')){
+    function product_rating_2($rate = 0){
+        $s = '<div class="ec-quickview-rating">';
+        for($i = 1; $i<=5; $i++){
+            if($i <= $rate){
+                $s .= '<i class="ecicon eci-star fill"></i>';
+            }else{
+                $s .= '<i class="ecicon eci-star"></i>';
+            }
+        }   
+        $s .= '</div>';
+        return $s;
+    }
+}
+
 if(! function_exists('price_format')){
     function price_format($price){
         if($price == null){

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Admin\AdminController;
+use Illuminate\Support\Facades\View;
 
 class ProductController extends AdminController
 {
@@ -464,6 +465,15 @@ class ProductController extends AdminController
             DB::rollBack();
             return false;
         }
+    }
+
+    function get_product(){
+        $id = request()->product_id;
+        $item = Product::where('id', $id)->first();
+        return response()->json([
+            'html' => View::make('frontend.components.detail-product')
+            ->with('item', $item)->render()
+        ], 200);
     }
 
 }
