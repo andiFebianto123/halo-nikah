@@ -76,6 +76,27 @@ class TopProductController extends AdminController
         ]);
 
         $this->crud->add_column([
+            'name' => 'vendor_id',
+            'label' => 'Vendor',
+            'type' => 'function',
+            'search' => function($value, $query){
+                return $query->orWhereHas('product.vendor', function($q) use($value){
+                    $q->where('vendors.name', 'LIKE', '%'.$value.'%');
+                });
+            },
+            'orderable' => true,
+            'orderLogic' => function($query, $column, $direction){
+                return $query
+                ->leftJoin('products', 'products.id', '=', 'top_products.product_id')
+                ->leftJoin('vendors', 'vendors.id', '=', 'products.vendor_id')
+                ->orderBy('vendors.name', $direction)->select('top_products.*');
+            },
+            'function' => function($item){
+                return $item->product->vendor->name;
+            }
+        ]);
+
+        $this->crud->add_column([
             'name' => 'product_id',
             'label' => 'Nama Produk',
             'orderlable' => true,
@@ -217,19 +238,19 @@ class TopProductController extends AdminController
             }
        }
 
-       $product = Product::where('id', $request->product_id)->first();
-       if($product->status != 1){
-        $errors['product_id'] = 'Product status is inactive';
-       }
-
-       if(count($errors) > 0){
-            return redirect()->back()
-            ->withErrors($errors)
-            ->withInput();
-        }
-
         DB::beginTransaction();
-        try{
+        try {
+
+            $product = Product::where('id', $request->product_id)->first();
+            if(($product->status != 1) || ($product->vendor->status != 1)){
+                $errors['product_id'] = 'Product or Vendor status is inactive';
+            }
+
+            if(count($errors) > 0){
+                return redirect()->back()
+                ->withErrors($errors)
+                ->withInput();
+            }
 
             $top_product = TopProduct::where('id', $id)->first();
             $top_product->product_id = $product_id;
@@ -288,19 +309,19 @@ class TopProductController extends AdminController
             }
        }
 
-       $product = Product::where('id', $request->product_id)->first();
-       if($product->status != 1){
-        $errors['product_id'] = 'Product status is inactive';
-       }
-
-       if(count($errors) > 0){
-            return redirect()->back()
-            ->withErrors($errors)
-            ->withInput();
-        }
-
         DB::beginTransaction();
         try{
+
+            $product = Product::where('id', $request->product_id)->first();
+            if(($product->status != 1) || ($product->vendor->status != 1)){
+                $errors['product_id'] = 'Product or Vendor status is inactive';
+            }
+
+            if(count($errors) > 0){
+                    return redirect()->back()
+                    ->withErrors($errors)
+                    ->withInput();
+            }
 
             $top_product = new TopProduct;
             $top_product->product_id = $product_id;

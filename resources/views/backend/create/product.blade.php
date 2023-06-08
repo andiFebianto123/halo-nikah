@@ -53,7 +53,7 @@
                                                 <div class="avatar-preview ec-preview">
                                                     <div class="imagePreview ec-div-preview">
                                                         <img class="ec-image-preview"
-                                                            src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                            src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                             alt="edit" />
                                                     </div>
                                                 </div>
@@ -72,7 +72,7 @@
                                                     <div class="thumb-preview ec-preview">
                                                         <div class="image-thumb-preview">
                                                             <img class="image-thumb-preview ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                         </div>
                                                     </div>
@@ -90,7 +90,7 @@
                                                     <div class="thumb-preview ec-preview">
                                                         <div class="image-thumb-preview">
                                                             <img class="image-thumb-preview ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                         </div>
                                                     </div>
@@ -108,7 +108,7 @@
                                                     <div class="thumb-preview ec-preview">
                                                         <div class="image-thumb-preview">
                                                             <img class="image-thumb-preview ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                         </div>
                                                     </div>

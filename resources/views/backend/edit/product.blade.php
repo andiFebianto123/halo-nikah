@@ -54,7 +54,7 @@
                                                     <div class="imagePreview ec-div-preview">
                                                         @if ($item->product_image_1 == null)
                                                             <img class="ec-image-preview"
-                                                            src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                            src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                             alt="edit" />
                                                         @else
                                                             <img class="ec-image-preview"
@@ -79,7 +79,7 @@
                                                         <div class="image-thumb-preview">
                                                             @if ($item->product_image_2 == null)
                                                                 <img class="ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                             @else
                                                                 <img class="ec-image-preview"
@@ -103,7 +103,7 @@
                                                         <div class="image-thumb-preview">
                                                             @if ($item->product_image_3 == null)
                                                                 <img class="ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                             @else
                                                                 <img class="ec-image-preview"
@@ -127,7 +127,7 @@
                                                         <div class="image-thumb-preview">
                                                             @if ($item->product_image_4 == null)
                                                                 <img class="ec-image-preview"
-                                                                src="{{ URL::asset('assets/img/products/vender-upload-preview.jpg') }}"
+                                                                src="{{ URL::asset('assets/images/product-image/88_1.jpg') }}"
                                                                 alt="edit" />
                                                             @else
                                                                 <img class="ec-image-preview"

@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Str;
+
 if (! function_exists('mb_ucfirst')) {
     /**
      * Capitalize the first letter of a string,
@@ -18,6 +20,36 @@ if (! function_exists('mb_ucfirst')) {
         $then = mb_substr($string, 1, $strlen - 1, $encoding);
 
         return mb_strtoupper($firstChar, $encoding).$then;
+    }
+}
+
+if(! function_exists('product_rating')){
+    function product_rating($rate = 0){
+        $s = '<span class="ec-pro-rating">';
+        for($i = 1; $i<=5; $i++){
+            if($i <= $rate){
+                $s .= '<i class="ecicon eci-star fill"></i>';
+            }else{
+                $s .= '<i class="ecicon eci-star"></i>';
+            }
+        }   
+        $s .= '</span>';
+        return $s;
+    }
+}
+
+if(! function_exists('price_format')){
+    function price_format($price){
+        if($price == null){
+            return '';
+        }
+        return "Rp " . number_format($price,0,',','.'); 
+    }
+}
+
+if(! function_exists('str_limit')){
+    function str_limit($str, $limit = 100){
+        return Str::limit($str, $limit, '...');
     }
 }
 

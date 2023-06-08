@@ -76,6 +76,27 @@ class SpecialProductController extends AdminController
         ]);
 
         $this->crud->add_column([
+            'name' => 'vendor_id',
+            'label' => 'Vendor',
+            'type' => 'function',
+            'search' => function($value, $query){
+                return $query->orWhereHas('product.vendor', function($q) use($value){
+                    $q->where('vendors.name', 'LIKE', '%'.$value.'%');
+                });
+            },
+            'orderable' => true,
+            'orderLogic' => function($query, $column, $direction){
+                return $query
+                ->leftJoin('products', 'products.id', '=', 'special_products.product_id')
+                ->leftJoin('vendors', 'vendors.id', '=', 'products.vendor_id')
+                ->orderBy('vendors.name', $direction)->select('special_products.*');
+            },
+            'function' => function($item){
+                return $item->product->vendor->name;
+            }
+        ]);
+
+        $this->crud->add_column([
             'name' => 'product_id',
             'label' => 'Nama Produk',
             'orderlable' => true,
@@ -230,19 +251,20 @@ class SpecialProductController extends AdminController
             }
        }
 
-       $product = Product::where('id', $request->product_id)->first();
-       if($product->status != 1){
-        $errors['product_id'] = 'Product status is inactive';
-       }
-
-       if(count($errors) > 0){
-            return redirect()->back()
-            ->withErrors($errors)
-            ->withInput();
-        }
 
         DB::beginTransaction();
         try{
+
+            $product = Product::where('id', $request->product_id)->first();
+            if(($product->status != 1) || ($product->vendor->status != 1)){
+                $errors['product_id'] = 'Product or Vendor status is inactive';
+            }
+
+            if(count($errors) > 0){
+                return redirect()->back()
+                ->withErrors($errors)
+                ->withInput();
+            }
 
             $update = SpecialProduct::where('id', $id)->first();
             $update->product_id = $product_id;
@@ -303,19 +325,19 @@ class SpecialProductController extends AdminController
             }
        }
 
-       $product = Product::where('id', $request->product_id)->first();
-       if($product->status != 1){
-        $errors['product_id'] = 'Product status is inactive';
-       }
-
-       if(count($errors) > 0){
-            return redirect()->back()
-            ->withErrors($errors)
-            ->withInput();
-        }
-
         DB::beginTransaction();
         try{
+
+            $product = Product::where('id', $request->product_id)->first();
+            if(($product->status != 1) || ($product->vendor->status != 1)){
+                $errors['product_id'] = 'Product or Vendor status is inactive';
+            }
+
+            if(count($errors) > 0){
+                return redirect()->back()
+                ->withErrors($errors)
+                ->withInput();
+            }
 
             $create = new SpecialProduct;
             $create->product_id = $product_id;

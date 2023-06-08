@@ -353,24 +353,24 @@ function ecCheckCookie()
     ResponsiveMobileEcartMenu();
 
     /*--------------------- Main Slider ---------------------- */
-    var EcMainSlider = new Swiper('.ec-slider.swiper-container', {
-        loop: true,
-        speed: 2000,
-        effect: "slide",
-        autoplay: {
-            delay: 7000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    // var EcMainSlider = new Swiper('.ec-slider .swiper-container', {
+    //     loop: true,
+    //     speed: 2000,
+    //     effect: "slide",
+    //     autoplay: {
+    //         delay: 7000,
+    //         disableOnInteraction: false,
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true,
+    //     },
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        }
-    });
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     }
+    // });
 
     /*--------------------- Quick view Slider ------------------------------ */
     $('.qty-product-cover').slick({
@@ -420,15 +420,15 @@ function ecCheckCookie()
     });
 
     /*--------------------- Special inner product Slider  ------------------------------ */
-    $('.ec-spe-products').slick({
-        rows: 1,
-        dots: false,
-        arrows: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    });
+    // $('.ec-spe-products').slick({
+    //     rows: 1,
+    //     dots: false,
+    //     arrows: true,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    // });
 
     $('.ec-spe-pro-cover').slick({
         slidesToShow: 1,
@@ -466,7 +466,44 @@ function ecCheckCookie()
 
     /*--------------------- Category Slider -------------------------------- */   
     /*--------------------- Blog Owl Slider -------------------------------- */ 
-    $('.ec-blog-slider, #ec-cat-slider').owlCarousel({
+    // $('#ec-cat-slider').owlCarousel({
+    //     margin:10,
+    //     loop: true,
+    //     dots:false,
+    //     nav:false,
+    //     smartSpeed: 1000,
+    //     autoplay:true,
+    //     items:3,
+    //     responsiveClass: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //             nav:false
+    //         },
+    //         576: {
+    //             items: 2,
+    //             nav:false
+    //         },
+    //         768: {
+    //             items: 2,
+    //             nav:false
+    //         },
+    //         992: {
+    //             items: 3,
+    //             nav:false
+    //         },
+    //         1200: {
+    //             items:4,
+    //             nav:false
+    //         },
+    //         1367: {
+    //             items: 4,
+    //             nav:false
+    //         }
+    //     }
+    // }); 
+
+    $('.ec-blog-slider').owlCarousel({
         margin:30,
         loop: true,
         dots:false,
@@ -906,7 +943,7 @@ function ecCheckCookie()
     });
 
     /*----------------------------- All Product Slider -------------------------------- */    
-    $('.ec-new-slider, .ec-special-slider, .ec-best-slider').slick({
+    $('.ec-new-slider-[mati], .ec-special-slider, .ec-best-slider').slick({
         rows: 1,
         dots: false,
         arrows: true,
@@ -927,8 +964,8 @@ function ecCheckCookie()
             breakpoint: 768,
             settings: {
                 rows: 2,
-                slidesToScroll: 2,
-                slidesToShow: 2,
+                slidesToScroll: 1,
+                slidesToShow: 1,
             }
         },
         {
@@ -938,7 +975,7 @@ function ecCheckCookie()
                 slidesToScroll: 1,
                 slidesToShow: 1,
             }
-        }
+        },
         ]
     });
 

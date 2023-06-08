@@ -16,10 +16,10 @@
         var ecPopNewsLetter = ecAccessCookie("ecPopNewsLetter");
         if (ecPopNewsLetter == "false")
         {
-            setTimeout( function(){ 
-                $("#ec-popnews-bg").fadeIn();
-                $("#ec-popnews-box").fadeIn();
-            }, 5000);
+            // setTimeout( function(){ 
+            //     $("#ec-popnews-bg").fadeIn();
+            //     $("#ec-popnews-box").fadeIn();
+            // }, 1000);
 
             $("#ec-popnews-close").click(() => {
                 $("#ec-popnews-bg").fadeOut();
