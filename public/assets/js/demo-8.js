@@ -987,7 +987,7 @@ function ecCheckCookie()
 	$(".ec-side-cat-overlay").on("click", function () {
 		$(".sidebar-dis-991").removeClass("ec-open");
 		$(".ec-side-cat-overlay").fadeOut();
-	});
+	}); 
 
     /*----------------------------- Recent auto popup -----------------------------------*/
     // setInterval(function () { $(".recent-purchase").stop().slideToggle('slow'); }, 10000);
@@ -1325,5 +1325,55 @@ function ecCheckCookie()
     var animation = new Animation(options);
 
 })(jQuery);
+
+/*----------------------------- List Grid View -------------------------------- */   
+$('.ec-gl-btn').on('click', 'button', function() {
+    var $this = $(this);
+    $this.addClass('active').siblings().removeClass('active');
+});
+
+// for 100% width list view
+function showList(e) {
+    var $gridCont = $('.shop-pro-inner');
+    // var $listView = $('.pro-gl-content');
+    var $listView = $('.ec-product-content');
+    e.preventDefault();
+    $gridCont.addClass('list-view');
+    $listView.addClass('width-100');
+}
+
+function gridList(e) {
+    var $gridCont = $('.shop-pro-inner');
+    // var $gridView = $('.pro-gl-content');
+    var $gridView = $('.ec-product-content');
+    e.preventDefault();
+    $gridCont.removeClass('list-view');
+    $gridView.removeClass('width-100');
+}
+
+$(document).on('click', '.btn-grid', gridList);
+$(document).on('click', '.btn-list', showList);
+
+// for 50% width list view
+function showList50(e) {
+    var $gridCont = $('.shop-pro-inner');
+    // var $listView = $('.pro-gl-content');
+    var $listView = $('.ec-product-content');
+    e.preventDefault();
+    $gridCont.addClass('list-view-50');
+    $listView.addClass('width-50');
+}
+
+function gridList50(e) {
+    var $gridCont = $('.shop-pro-inner');
+    // var $gridView = $('.pro-gl-content');
+    var $gridView = $('.ec-product-content');
+    e.preventDefault();
+    $gridCont.removeClass('list-view-50');
+    $gridView.removeClass('width-50');
+}
+
+$(document).on('click', '.btn-grid-50', gridList50);
+$(document).on('click', '.btn-list-50', showList50);
 
 window.demo8 = new demo();

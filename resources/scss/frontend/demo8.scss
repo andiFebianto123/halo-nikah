@@ -13,18 +13,46 @@
 // Typography ( Import Typography )
 @import "base/_typography";
 
+// Site main text hover color
 // Utilities ( Import Utilities )
 @import "utilities/_variables"; 
 @import "utilities/_mixins"; 
 
 // Components ( Import Required Components )
-
 @import "components/_helper";
 @import "components/_click-to-call";
 // @import "components/_popup-model";
+@import "components/_breadcrumb";
 @import "layout/_header_demo_8";
 @import "layout/_footer_demo_8";
 @import "pages/_demo8";
+
+@import "pages/_shop-page";
+@import "pages/_login-page";
+@import "pages/_register-page";
+@import "pages/_aboutus-page";
+@import "pages/_term-page";
+@import "pages/_contactus-page";
+@import "pages/_faq-page";
+@import "pages/_single-pro-page";
+@import "pages/_blog-page";
+@import "pages/_cart-page";
+@import "pages/_compare-page";
+@import "pages/_track-order-page";
+@import "pages/_checkout-page";
+@import "pages/_elements-tabs";
+@import "pages/_elemets-categories";
+@import "pages/_elements-buttons";
+@import "pages/_elements-products";
+@import "pages/_elements-title";
+@import "pages/_coming-soon";
+@import "pages/_elements-blog";
+@import "pages/_elements-typography";
+@import "pages/_vendor-pages";
+@import "pages/_user-pages";
+@import "pages/_hot-offer";
+
+
 
 
 

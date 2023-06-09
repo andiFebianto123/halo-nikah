@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
+use App\Http\Controllers\VendorController as VendorFrontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ use App\Http\Controllers\Admin\SpecialProductController;
 
 // Frontend
 Route::get('home', [HomeController::class, 'index']);
+Route::get('vendor-detail', [VendorFrontend::class, 'detail']);
 
 // API
 Route::prefix('api')->group(function(){
