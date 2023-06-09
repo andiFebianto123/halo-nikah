@@ -1,3 +1,9 @@
+// custom JS 
+var demo = function(){};
+
+demo.prototype.test = function(){
+    console.log('tes...');
+}
 // Function To Create New Cookie 
 function ecCreateCookie(cookieName,cookieValue,daysToExpire)
 {
@@ -244,7 +250,7 @@ function ecCheckCookie()
         
     });
 
-    function formatRupiah(angka, prefix){
+    demo.prototype.formatRupiah = function(angka, prefix){
         var number_string = angka.replace(/[^,\d]/g, '').toString(),
         separator,
         split   		= number_string.split(','),
@@ -262,38 +268,7 @@ function ecCheckCookie()
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
 
-    /*--------------------- Add To Cart -----------------------------------*/
-    $("body").on("click", ".add-to-cart", function(){
-       
-        var count = $(".ec-cart-count").html();        
-        count++;
-        $(".ec-cart-count").html(count);
-
-        // Remove Empty message    
-        $(".emp-cart-msg").parent().remove();
-        
-        // get an image url
-        var img_url = $(this).parents().parents().parents().children(".ec-pro-image-outer").find(".main-image").attr("src");
-        var p_name = $(this).parents().parents().parents().find(".ec-pro-title").children().html();
-        // var p_price = $(this).parents().parents().parents().find(".ec-price").children(".new-price").html();
-        var p_price = $(this).attr('data-price');
-        var p_price_rupiah = formatRupiah(p_price, 'Rp.');
-        
-        var p_html = '<li>'+
-                        '<a href="product.html" class="sidecart_pro_img"><img src="'+ img_url +'" alt="product"></a>'+
-                        '<div class="ec-pro-content">'+
-                            '<a href="product.html" class="cart_pro_title">'+ p_name +'</a>'+
-                        '<span class="cart-price"><span>'+ p_price_rupiah +'</span> x 1</span>'+
-                            '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>'+
-                                '<input type="hidden" name="price[]" value="'+p_price+'" />'+
-                                '<input class="qty-input" type="text" name="ec_qtybtn[]" value="1">'+
-                            '<div class="inc ec_qtybtn">+</div></div>'+
-                            '<a href="javascript:void(0)" class="remove">×</a>'+
-                        '</div>'+
-                    '</li>';
-
-        $('.eccart-pro-items').append(p_html);    
-
+    demo.prototype.refreshActionQty = function(){
         $(".ec_qtybtn").off("click");
         $(".ec_qtybtn").on("click", function() {
             var $qtybutton = $(this);
@@ -310,7 +285,47 @@ function ecCheckCookie()
             }
             $qtybutton.parent().find(".qty-input").val(QtynewVal);
         });
+    };
+
+    demo.prototype.addToCart = function(img_url, p_name, p_price, qty){
+        var count = $(".ec-cart-count").html();        
+        count++;
+        $(".ec-cart-count").html(count);
+
+        // Remove Empty message    
+        $(".emp-cart-msg").parent().remove();
+
+        var p_price_rupiah = this.formatRupiah(p_price, 'Rp.');
         
+        var p_html = '<li>'+
+                        '<a href="product.html" class="sidecart_pro_img"><img src="'+ img_url +'" alt="product"></a>'+
+                        '<div class="ec-pro-content">'+
+                            '<a href="product.html" class="cart_pro_title">'+ p_name +'</a>'+
+                        '<span class="cart-price"><span>'+ p_price_rupiah +'</span> x '+qty+'</span>'+
+                            '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>'+
+                                '<input type="hidden" name="price[]" value="'+p_price+'" />'+
+                                '<input class="qty-input" type="text" name="ec_qtybtn[]" value="'+qty+'">'+
+                            '<div class="inc ec_qtybtn">+</div></div>'+
+                            '<a href="javascript:void(0)" class="remove">×</a>'+
+                        '</div>'+
+                    '</li>';
+
+        $('.eccart-pro-items').append(p_html); 
+        $("#addtocart_toast").addClass("show");
+        setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
+        this.refreshActionQty();
+    }
+
+    /*--------------------- Add To Cart -----------------------------------*/
+    $("body").on("click", ".add-to-cart", function(){
+        // get an image url
+        var img_url = $(this).parents().parents().parents().children(".ec-pro-image-outer").find(".main-image").attr("src");
+        var p_name = $(this).parents().parents().parents().find(".ec-pro-title").children().html();
+        // var p_price = $(this).parents().parents().parents().find(".ec-price").children(".new-price").html();
+        var p_price = $(this).attr('data-price');
+        // var p_price_rupiah = formatRupiah(p_price, 'Rp.');
+        demo8.addToCart(img_url, p_name, p_price, 1);
+
     });
 
     (function() {
@@ -441,21 +456,6 @@ function ecCheckCookie()
     var QtyPlusMinus = $(".qty-plus-minus");
     QtyPlusMinus.prepend('<div class="dec ec_qtybtn">-</div>');
     QtyPlusMinus.append('<div class="inc ec_qtybtn">+</div>');
-    // $(".ec_qtybtn").click(function(){
-    //     var $qtybutton = $(this);
-    //     var QtyoldValue = $qtybutton.parent().find("input").val();
-    //     if ($qtybutton.text() === "+") {
-    //         var QtynewVal = parseFloat(QtyoldValue) + 1;
-    //     } else {
-
-    //         if (QtyoldValue > 1) {
-    //             var QtynewVal = parseFloat(QtyoldValue) - 1;
-    //         } else {
-    //             QtynewVal = 1;
-    //         }
-    //     }
-    //     $qtybutton.parent().find("input").val(QtynewVal);
-    // });
     $(".ec_qtybtn").on("click", function() {
         var $qtybutton = $(this);
         var QtyoldValue = $qtybutton.parent().find("input").val();
@@ -990,7 +990,7 @@ function ecCheckCookie()
 	});
 
     /*----------------------------- Recent auto popup -----------------------------------*/
-    setInterval(function () { $(".recent-purchase").stop().slideToggle('slow'); }, 10000);
+    // setInterval(function () { $(".recent-purchase").stop().slideToggle('slow'); }, 10000);
     $(".recent-close").click(function () {
         $(".recent-purchase").stop().slideToggle('slow');
     });
@@ -1098,10 +1098,10 @@ function ecCheckCookie()
 
     /*--------------------- Add To  Cart Toast -------------------------------- */    
     $(document).ready(function(){
-        $(".ec-btn-group.add-to-cart").click(function() {
-            $("#addtocart_toast").addClass("show");
-            setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
-        });
+        // $(".ec-btn-group.add-to-cart").click(function() {
+        //     $("#addtocart_toast").addClass("show");
+        //     setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
+        // });
 
         $(".ec-btn-group.wishlist").click(function() {
             $("#wishlist_toast").addClass("show");
@@ -1325,3 +1325,5 @@ function ecCheckCookie()
     var animation = new Animation(options);
 
 })(jQuery);
+
+window.demo8 = new demo();

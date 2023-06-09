@@ -1,4 +1,15 @@
-
+@php
+    $images = 'product-default.jpg';
+    if($item->product_image_1){
+        $images = $item->product_image_1;
+    }else if($item->product_image_2){
+        $images = $item->product_image_2;
+    }else if($item->product_image_3){
+        $images = $item->product_image_3;
+    }else if($item->product_image_4){
+        $images = $item->product_image_4;
+    }
+@endphp
 <div class="row">
     <div class="col-md-5 col-sm-12 col-xs-12">
         <!-- Swiper -->
@@ -67,14 +78,16 @@
                 @if($item->discounted_price > 0)<span class="old-price">{!! price_format($item->discounted_price) !!}</span>@endif
             </div>
             <div class="ec-quickview-qty">
-                <div class="qty-plus-minus">
+                <div id="form-detail-product" class="qty-plus-minus">
+                    <input id="images" type="hidden" value="{{ URL::asset('storage/images/product/'.$images) }}" name="images" />
+                    <input type="hidden" name="name" id="name" value="{{ $item->name }}">
                     <div class="dec ec_qtybtn">-</div>
-                    <input type="hidden" name="price[]" value="{{ $item->price }}" />
-                    <input class="qty-input" type="text" name="ec_qtybtn[]" value="1" />
+                    <input type="hidden" id="price" name="price" value="{{str_replace(".","",trim(intval($item->price)))}}" />
+                    <input class="qty-input" type="text" id="qty" name="ec_qtybtn" value="1" />
                     <div class="inc ec_qtybtn">+</div>
                 </div>
                 <div class="ec-quickview-cart">
-                    <button class="btn btn-primary">Add To Cart</button>
+                    <button id="button-cart-popup" class="btn btn-primary" onclick="addToCartCustom()">Add To Cart</button>
                 </div>
             </div>
         </div>
@@ -84,6 +97,18 @@
 @push('custom-scripts')
     @if (request()->ajax()) @endpush @endif
     <script>
+
+        if(typeof addToCart == 'undefined'){
+            function addToCartCustom(){
+                // get an image url
+                var img_url = $('#form-detail-product').find("#images").val();
+                var p_name = $('#form-detail-product').find('#name').val();
+                var p_price = $('#form-detail-product').find('#price').val();
+                var qty = $('#form-detail-product').find('#qty').val();
+                demo8.addToCart(img_url, p_name, p_price, qty);
+            }
+        }
+
         if(typeof loadSlickModalProduct == 'undefined'){
             function loadSlickModalProduct(){
                 $('.qty-product-cover').slick({
@@ -112,26 +137,7 @@
                     ]
                 });
 
-                // var QtyPlusMinus = $(".qty-plus-minus");
-
-                // QtyPlusMinus.prepend('<div class="dec ec_qtybtn">-</div>');
-                // QtyPlusMinus.append('<div class="inc ec_qtybtn">+</div>');
-                $(".ec_qtybtn").off("click");
-                $(".ec_qtybtn").on("click", function() {
-                    var $qtybutton = $(this);
-                    var QtyoldValue = $qtybutton.parent().find(".qty-input").val();
-                    if ($qtybutton.text() === "+") {
-                        var QtynewVal = parseFloat(QtyoldValue) + 1;
-                    } else {
-
-                        if (QtyoldValue > 1) {
-                            var QtynewVal = parseFloat(QtyoldValue) - 1;
-                        } else {
-                            QtynewVal = 1;
-                        }
-                    }
-                    $qtybutton.parent().find(".qty-input").val(QtynewVal);
-                });
+                demo8.refreshActionQty();
 
             }
         }

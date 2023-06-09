@@ -107,7 +107,7 @@
     <!-- Footer navigation panel for responsive display end -->
 
     <!-- Recent Purchase Popup  -->
-    <div class="recent-purchase">
+    {{-- <div class="recent-purchase">
         <img src="assets/images/product-image/111_1.jpg" alt="payment image">
         <div class="detail">
             <p>Someone in new just bought</p>
@@ -115,7 +115,7 @@
             <p>2 Minutes ago</p>
         </div>
         <a href="javascript:void(0)" class="icon-btn recent-close">×</a>
-    </div>
+    </div> --}}
     <!-- Recent Purchase Popup end -->
 
     <!-- Add to Cart successfully toast Start -->
