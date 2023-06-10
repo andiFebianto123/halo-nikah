@@ -7,13 +7,13 @@
                 <div class="col-12">
                     <div class="row ec_breadcrumb_inner">
                         <div class="col-md-6 col-sm-12">
-                            <h2 class="ec-breadcrumb-title">Single Vendor</h2>
+                            <h2 class="ec-breadcrumb-title">Vendor Detail</h2>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <!-- ec-breadcrumb-list start -->
                             <ul class="ec-breadcrumb-list">
                                 <li class="ec-breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="ec-breadcrumb-item active">Single Vendor</li>
+                                <li class="ec-breadcrumb-item active">Vendor Detail</li>
                             </ul>
                             <!-- ec-breadcrumb-list end -->
                         </div>
@@ -259,6 +259,102 @@
                                         </div>
                                     </div>
                                 </div> --}}
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content">
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="product-left-sidebar.html" class="image">
+                                                    <img class="main-image" src="http://localhost/laravel/adminlte-laravel/public/storage/images/product/product-default.jpg" alt="Product">
+                                                    
+                                                </a>
+                                                                <span class="percentage">16%</span>
+                                                                <div class="ec-pro-actions">
+                                                    
+                                                    <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="showModalProduct('1')">
+                                                        <i class="fi-rr-eye"></i>
+                                                    </a>
+                                                    
+                                                    <a href="javascript:void(0)" title="Add To Cart" data-price="10000" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
+                                                </div>
+                                            <div class="ec-pro-loader"></div></div>
+                                        </div>
+                                        <div class="ec-pro-content">
+                                            <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Fotografi</h6></a> 
+                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Produk 1</a></h5>
+                                            <div class="ec-pro-rat-price">
+                                                <span class="ec-pro-rating"><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star"></i></span>   
+                                                <span class="ec-price">
+                                                    <span class="new-price">Rp 10.000</span>
+                                                    <span class="old-price">Rp 12.000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content">
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="product-left-sidebar.html" class="image">
+                                                    <img class="main-image" src="http://localhost/laravel/adminlte-laravel/public/storage/images/product/product-default.jpg" alt="Product">
+                                                    
+                                                </a>
+                                                                <span class="percentage">16%</span>
+                                                                <div class="ec-pro-actions">
+                                                    
+                                                    <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="showModalProduct('1')">
+                                                        <i class="fi-rr-eye"></i>
+                                                    </a>
+                                                    
+                                                    <a href="javascript:void(0)" title="Add To Cart" data-price="10000" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
+                                                </div>
+                                            <div class="ec-pro-loader"></div></div>
+                                        </div>
+                                        <div class="ec-pro-content">
+                                            <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Fotografi</h6></a> 
+                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Produk 1</a></h5>
+                                            <div class="ec-pro-rat-price">
+                                                <span class="ec-pro-rating"><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star"></i></span>   
+                                                <span class="ec-price">
+                                                    <span class="new-price">Rp 10.000</span>
+                                                    <span class="old-price">Rp 12.000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content">
+                                    <div class="ec-product-inner">
+                                        <div class="ec-pro-image-outer">
+                                            <div class="ec-pro-image">
+                                                <a href="product-left-sidebar.html" class="image">
+                                                    <img class="main-image" src="http://localhost/laravel/adminlte-laravel/public/storage/images/product/product-default.jpg" alt="Product">
+                                                    
+                                                </a>
+                                                                <span class="percentage">16%</span>
+                                                                <div class="ec-pro-actions">
+                                                    
+                                                    <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#ec_quickview_modal" onclick="showModalProduct('1')">
+                                                        <i class="fi-rr-eye"></i>
+                                                    </a>
+                                                    
+                                                    <a href="javascript:void(0)" title="Add To Cart" data-price="10000" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
+                                                </div>
+                                            <div class="ec-pro-loader"></div></div>
+                                        </div>
+                                        <div class="ec-pro-content">
+                                            <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Fotografi</h6></a> 
+                                            <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Produk 1</a></h5>
+                                            <div class="ec-pro-rat-price">
+                                                <span class="ec-pro-rating"><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star fill"></i><i class="ecicon eci-star"></i></span>   
+                                                <span class="ec-price">
+                                                    <span class="new-price">Rp 10.000</span>
+                                                    <span class="old-price">Rp 12.000</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content">
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
