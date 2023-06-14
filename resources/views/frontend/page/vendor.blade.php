@@ -23,13 +23,13 @@
         </div>
     </div>
 
-    {{-- <!-- Main Slider Start -->
+    <!-- Main Slider Start -->
     <div class="ec-main-slider section section-space-pb">
         <div class="container">
             <x-slider-banner id="custom" />
         </div>
     </div>
-    <!-- Main Slider End --> --}}
+    <!-- Main Slider End -->
 
     <!-- Sart Shop -->
     <section class="ec-page-content-bnr section-space-pb">
@@ -53,10 +53,10 @@
                     <div class="shop-pro-content">
                         <div class="shop-pro-inner">
                             <div class="row mb-6">
-                                @foreach ($products as $product)
-                                        <x-card-product 
-                                            :id="$product->id"
-                                            :item="$product"
+                                @foreach ($vendors as $vendor)
+                                        <x-card-vendor 
+                                            :id="$vendor->id"
+                                            :item="$vendor"
                                         />
                                 @endforeach
                             </div>
@@ -112,30 +112,8 @@
                             <div class="ec-sb-title">
                                 <h3 class="ec-sidebar-title">Price</h3>
                             </div>
-                            <div class="ec-sb-block-content es-price-slider">
-                                <div class="ec-price-filter">
-                                    <div id="ec-sliderPrice"
-                                    data-value_min="{{ (request()->has('price_min')) ? request()->price_min : 0 }}"
-                                    data-value_max="{{ (request()->has('price_max')) ? request()->price_max : 0 }}" 
-                                    class="filter__slider-price" data-min="0" data-max="50000000"
-                                    data-step="0"></div>
-                                    {{-- <div class="ec-price-input">
-                                        <label class="filter__label"><input type="text" class="filter__input"></label>
-                                        <span class="ec-price-divider"></span>
-                                        <label class="filter__label"><input type="text" class="filter__input"></label>
-                                    </div> --}}
-                                    <div class="ec-price-input">
-                                        <label class="filter__label">
-                                            <span class="label_rp_0"></span>
-                                            <input type="hidden" name="price_min" class="filter__input">
-                                        </label>
-                                        <span class="ec-price-divider"></span>
-                                        <label class="filter__label">
-                                            <span class="label_rp_1"></span>
-                                            <input type="hidden" name="price_max" class="filter__input">
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="ec-sb-block-content">
+                                
                             </div>
                         </div>
                         <button type="submit" class="mt-3 btn btn-lg btn-primary" tabindex="0">Submit</button>
@@ -251,12 +229,9 @@
     <script src="{{ URL::asset('assets/js/plugins/click-to-call.js') }}"></script>
     <script src="{{ URL::asset('assets/js/vendor/jquery.magnific-popup.min.js') }}"></script>
 
-    <script src="https://unpkg.com/@develoka/angka-rupiah-js/index.min.js"></script>
-
     <!-- Main Js -->
     <script src="{{ URL::asset('assets/js/vendor/index.js') }}"></script>
     <script src="{{ URL::asset('assets/js/demo-8.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/URI.js') }}"></script>
 
     {{-- <script src="{{ URL::asset('assets/js/main.js')}}"></script> --}}
 

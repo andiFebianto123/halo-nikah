@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Kategorie;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\City;
 
 class Vendor extends Model
 {
@@ -30,4 +31,12 @@ class Vendor extends Model
         'youtube_url_4',
         'status'
     ];
+
+    function kota(){
+        return $this->belongsTo(City::class, 'city', 'id');
+    }
+
+    public function kategori(){
+        return $this->belongsTo(Kategorie::class, 'kategori_id', 'id');
+    }
 }

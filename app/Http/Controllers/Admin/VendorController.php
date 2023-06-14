@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Vendor;
+use App\Models\Kategorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Admin\AdminController;
@@ -29,7 +30,7 @@ class VendorController extends AdminController
             'type' => 'text',
             'orderable' => true,
             'search' => function($value, $query){
-                return $query->where('name', 'LIKE', '%'.$value.'%');
+                return $query->where('vendors.name', 'LIKE', '%'.$value.'%');
             }
         ]);
 
@@ -40,11 +41,24 @@ class VendorController extends AdminController
         ]);
 
         $this->crud->add_column([
-            'name' => 'service',
-            'label' => 'Service',
-            'type' => 'text',
+            'name' => 'kategori_id',
+            'label' => 'Kategori',
+            'type' => 'function',
             'search' => function($value, $query){
-                return $query->OrWhere('service', 'LIKE', '%'.$value.'%');
+                return $query->orWhereHas('kategori', function($q) use($value){
+                    $q->where('kategories.name', 'LIKE', '%'.$value.'%');
+                });
+            },
+            'orderable' => true,
+            'orderLogic' => function($query, $column, $direction){
+                return $query->leftJoin('kategories', 'kategories.id', '=', 'vendors.kategori_id')
+                ->orderBy('kategories.name', $direction)->select('vendors.*');
+            },
+            'function' => function($item){
+                if($item->kategori != null){
+                    return $item->kategori->name;
+                }
+                return '-';
             }
         ]);
 
@@ -184,6 +198,7 @@ class VendorController extends AdminController
                 'name' => 'required|unique:vendors,name,'.$id,
                 'image_profile' => 'mimes:jpeg,jpg,png,gif|max:10000',
                 'province' => 'required',
+                'kategori_id' => 'required',
                 'city' => 'required',
                 'address' => 'required',
             ];
@@ -192,6 +207,7 @@ class VendorController extends AdminController
             'name' => 'required|unique:vendors,name',
             'image_profile' => 'mimes:jpeg,jpg,png,gif|max:10000',
             'image_banner' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'kategori_id' => 'required',
             'province' => 'required',
             'city' => 'required',
             'address' => 'required',
@@ -203,12 +219,17 @@ class VendorController extends AdminController
     }
 
     function create(){
-        return $this->admin_view('create.vendor');
+        $kategories = Kategorie::where('status', 1)->get();
+        return $this->admin_view('create.vendor', [
+            'option_categories' => $kategories,
+        ]);
     }
 
     function edit($id){
+        $kategories = Kategorie::where('status', 1)->get();
         $item = $this->crud->get_item($id);
         return $this->admin_view('edit.vendor', [
+            'option_categories' => $kategories,
             'item' => $item,
             'id' => $id,
         ]);
@@ -218,7 +239,7 @@ class VendorController extends AdminController
         $request = request();
         $request->request->remove('_token');
         $name = $request->name;
-        $service = $request->service;
+        $kategori = $request->kategori_id;
         $email = $request->email;
         $phone = $request->phone;
         $province = $request->province;
@@ -293,7 +314,7 @@ class VendorController extends AdminController
 
     function store(Request $request){
         $name = $request->name;
-        $service = $request->service;
+        $kategori = $request->kategori_id;
         $email = $request->email;
         $phone = $request->phone;
         $province = $request->province;
@@ -350,7 +371,7 @@ class VendorController extends AdminController
             $vendor->name = $name;
             $vendor->image_profile = $fileNameToStoreVendor;
             $vendor->image_banner = $fileNameToStoreBanner;
-            $vendor->service = $service;
+            $vendor->kategori_id = $kategori;
             $vendor->description = $description;
             $vendor->province = $province;
             $vendor->city = $city;

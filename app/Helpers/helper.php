@@ -38,6 +38,23 @@ if(! function_exists('product_rating')){
     }
 }
 
+if(! function_exists('vendor_rating')){
+    function vendor_rating($rate = 0){
+        $s = '<span class="ec-pro-rating">';
+        $s .= '<center>';
+        for($i = 1; $i<=5; $i++){
+            if($i <= $rate){
+                $s .= '<i style="float:none;" class="ecicon eci-star fill"></i>';
+            }else{
+                $s .= '<i style="float:none;" class="ecicon eci-star"></i>';
+            }
+        }
+        $s .= '</center>';
+        $s .= '</span>';
+        return $s;
+    }
+}
+
 if(! function_exists('product_rating_2')){
     function product_rating_2($rate = 0){
         $s = '<div class="ec-quickview-rating">';

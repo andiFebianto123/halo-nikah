@@ -11,6 +11,7 @@
     $option_rate = [
         1, 2, 3, 4, 5
     ];
+    $kategori_value = (old('kategori_id') != null) ? old('kategori_id') : '';
 @endphp
 <div class="content">
         <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
@@ -108,9 +109,18 @@
                                                         @enderror
                                                     </div>
                                                     <div class="col-md-12 mb-3">
-                                                        <label for="service" class="form-label">Pelayanan atau Jasa  *</label>
-                                                        <input type="text" class="form-control slug-title" name="service" value="{{ old('service') }}" id="service">
-                                                        @error('service')
+                                                        <label for="">Kategori Produk *</label>
+                                                        <select class="form-control" id="select2-kategori" name="kategori_id">
+                                                            <option value=""></option>
+                                                            @foreach ($option_categories as $categorie)
+                                                                @if ($kategori_value == $categorie->id)
+                                                                <option selected value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                                                @else
+                                                                <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        </select>
+                                                        @error('kategori_id')
                                                             <p class="msg-error">{{ $message }}</p>
                                                         @enderror
                                                     </div>

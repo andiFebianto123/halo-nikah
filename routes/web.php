@@ -31,10 +31,13 @@ use App\Http\Controllers\ProductController as ProductFrontend;
 // Frontend
 Route::get('home', [HomeController::class, 'index']);
 
+// products
 Route::get('products', [ProductFrontend::class, 'index']);
 Route::get('products/{id}', [ProductFrontend::class, 'detail']);
 
-Route::get('vendor-detail', [VendorFrontend::class, 'detail']);
+// vendors
+Route::get('vendors', [VendorFrontend::class, 'index']);
+Route::get('vendors-detail', [VendorFrontend::class, 'detail']);
 
 // API
 Route::prefix('api')->group(function(){
