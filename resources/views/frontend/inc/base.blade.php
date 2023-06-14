@@ -19,25 +19,25 @@
     <meta name="author" content="ashishmaraviya">
     
    <!-- site Favicon -->
-   <link rel="icon" href="assets/images/favicon/favicon-8.png" sizes="32x32" />
-   <link rel="apple-touch-icon" href="assets/images/favicon/favicon-8.png" />
-   <meta name="msapplication-TileImage" content="assets/images/favicon/favicon-8.png" />
+   <link rel="icon" href="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" sizes="32x32" />
+   <link rel="apple-touch-icon" href="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" />
+   <meta name="msapplication-TileImage" content="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" />
 
    <!-- css Icon Font -->
-   <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
 
    @yield('style')
    
 </head>
 <body>
-    <div id="ec-overlay">
+    {{-- <div id="ec-overlay">
         <div class="ec-ellipsis">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> --}}
     
     @include('frontend.inc.header')
 
@@ -66,7 +66,7 @@
                             <div class="d-flex bd-highlight">
                                 <!-- Profile Picture -->
                                 <div class="ec-img-cont">
-                                    <img src="assets/images/whatsapp/profile_01.jpg" class="ec-user-img"
+                                    <img src="{{ URL::asset('assets/images/whatsapp/profile_01.jpg') }}" class="ec-user-img"
                                         alt="Profile image">
                                     <span class="ec-status-icon"></span>
                                 </div>
@@ -83,6 +83,8 @@
                         </a>
                     </li>
                     <!--/ End Single Contact List -->
+                    
+    
                     <!-- Start Single Contact List -->
                     <li>
                         <a class="ec-list" data-number="918866774266"
@@ -90,55 +92,7 @@
                             <div class="d-flex bd-highlight">
                                 <!-- Profile Picture -->
                                 <div class="ec-img-cont">
-                                    <img src="assets/images/whatsapp/profile_02.jpg" class="ec-user-img"
-                                        alt="Profile image">
-                                    <span class="ec-status-icon ec-online"></span>
-                                </div>
-                                <!-- Display Name & Last Seen -->
-                                <div class="ec-user-info">
-                                    <span>Yolduz Rafi</span>
-                                    <p>Yolduz is online</p>
-                                </div>
-                                <!-- Chat iCon -->
-                                <div class="ec-chat-icon">
-                                    <i class="fa fa-whatsapp"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!--/ End Single Contact List -->
-                    <!-- Start Single Contact List -->
-                    <li>
-                        <a class="ec-list" data-number="918866774266"
-                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                            <div class="d-flex bd-highlight">
-                                <!-- Profile Picture -->
-                                <div class="ec-img-cont">
-                                    <img src="assets/images/whatsapp/profile_03.jpg" class="ec-user-img"
-                                        alt="Profile image">
-                                    <span class="ec-status-icon ec-offline"></span>
-                                </div>
-                                <!-- Display Name & Last Seen -->
-                                <div class="ec-user-info">
-                                    <span>Nargis Hawa</span>
-                                    <p>Nargis left 30 mins ago</p>
-                                </div>
-                                <!-- Chat iCon -->
-                                <div class="ec-chat-icon">
-                                    <i class="fa fa-whatsapp"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!--/ End Single Contact List -->
-                    <!-- Start Single Contact List -->
-                    <li>
-                        <a class="ec-list" data-number="918866774266"
-                            data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                            <div class="d-flex bd-highlight">
-                                <!-- Profile Picture -->
-                                <div class="ec-img-cont">
-                                    <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
+                                    <img src="{{ URL::asset('assets/images/whatsapp/profile_04.jpg') }}" class="ec-user-img"
                                         alt="Profile image">
                                     <span class="ec-status-icon ec-offline"></span>
                                 </div>
@@ -163,7 +117,7 @@
         <div class="ec-right-bottom">
             <div class="ec-box">
                 <div class="ec-button rotateBackward">
-                    <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
+                    <img class="whatsapp" src="{{ URL::asset('assets/images/common/whatsapp.png') }}" alt="whatsapp icon" />
                 </div>
             </div>
         </div>

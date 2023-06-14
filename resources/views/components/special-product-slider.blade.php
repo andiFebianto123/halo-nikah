@@ -50,13 +50,14 @@
                                     <b>15</b></span><span>Available: <b>40</b></span></span>
                             <span class="ec-spe-pro-progressbar"></span>
                         </div> --}}
-                        @if ( ($item->date_start != null) && ($item->date_end != null) )
+                        @if (($item->is_permanently != 1) && (($item->date_start != null) && ($item->date_end != null)) )
                         <div class="countdowntimer">
                             <span class="ec-spe-count-desc"> Cepat! Penawaran berakhir di:</span>
                             <span id="ec-spe-count-{{ $item->id }}"></span>
                         </div>
                         @php
-                            $start_date = \Carbon\Carbon::create($item->date_start)->format('Y/m/d H:i:s');
+                            // $start_date = \Carbon\Carbon::create($item->date_start)->format('Y/m/d H:i:s');
+                            $start_date = \Carbon\Carbon::now()->format('Y/m/d H:i:s');
                             $end_date = \Carbon\Carbon::create($item->date_end)->format('Y/m/d H:i:s');
                         @endphp
                         @push('custom-scripts')

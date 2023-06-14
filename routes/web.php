@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
 use App\Http\Controllers\VendorController as VendorFrontend;
+use App\Http\Controllers\ProductController as ProductFrontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ use App\Http\Controllers\VendorController as VendorFrontend;
 
 // Frontend
 Route::get('home', [HomeController::class, 'index']);
+
+Route::get('products', [ProductFrontend::class, 'index']);
+Route::get('products/{id}', [ProductFrontend::class, 'detail']);
+
 Route::get('vendor-detail', [VendorFrontend::class, 'detail']);
 
 // API

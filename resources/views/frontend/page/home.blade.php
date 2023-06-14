@@ -82,8 +82,8 @@
                                 <div class="row">
                                     @foreach ($top_products as $t_product)
                                         <x-card-product 
-                                            :id="$t_product->id"
-                                            :item="$t_product"
+                                            :id="$t_product->product->id"
+                                            :item="$t_product->product"
                                         />
                                     @endforeach
                                     

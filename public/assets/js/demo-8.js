@@ -196,11 +196,14 @@ function ecCheckCookie()
     if(slider){
         const rangeMin = parseInt(slider.dataset.min);
         const rangeMax = parseInt(slider.dataset.max);
+        const valueMin = (slider.dataset.value_min > 10) ? slider.dataset.value_min : rangeMin;
+        const valueMax = (slider.dataset.value_max > 10) ? slider.dataset.value_max : rangeMax; 
+
         const step = parseInt(slider.dataset.step);
         const filterInputs = document.querySelectorAll('input.filter__input');
 
         noUiSlider.create(slider, {
-            start: [rangeMin, rangeMax],
+            start: [valueMin, valueMax],
             connect: true,
             step: step,
             range: {
@@ -217,6 +220,9 @@ function ecCheckCookie()
 
         // bind inputs with noUiSlider 
         slider.noUiSlider.on('update', (values, handle) => {
+            // console.log(handle);
+            let r = toRupiah(parseInt(values[handle]), {useUnit: true, symbol: null, k: true})
+            $(`.label_rp_${handle}`).html(r);
             filterInputs[handle].value = values[handle];
         });
 
@@ -1375,5 +1381,110 @@ function gridList50(e) {
 
 $(document).on('click', '.btn-grid-50', gridList50);
 $(document).on('click', '.btn-list-50', showList50);
+
+// chat panel open/close function
+$.fn.launchBtn = function (options) {
+    var mainBtn, panel, clicks, settings, launchPanelAnim, closePanelAnim, openPanel, boxClick;
+
+    mainBtn = $(".ec-button");
+    panel = $(".ec-panel");
+    clicks = 0;
+
+    //default settings
+    settings = $.extend({
+        openDuration: 600,
+        closeDuration: 200,
+        rotate: true
+    }, options);
+
+    //Open panel animation
+    launchPanelAnim = function () {
+        panel.animate({
+            opacity: "toggle",
+            height: "toggle"
+        }, settings.openDuration);
+    };
+
+    //Close panel animation
+    closePanelAnim = function () {
+        panel.animate({
+            opacity: "hide",
+            height: "hide"
+        }, settings.closeDuration);
+    };
+
+    //Open panel and rotate icon
+    openPanel = function (e) {
+        if (clicks === 0) {
+            if (settings.rotate) {
+                $(this).removeClass('rotateBackward').toggleClass('rotateForward');
+            }
+
+            launchPanelAnim();
+            clicks++;
+        } else {
+            if (settings.rotate) {
+                $(this).removeClass('rotateForward').toggleClass('rotateBackward');
+            }
+
+            closePanelAnim();
+            clicks--;
+        }
+        e.preventDefault();
+        return false;
+    };
+
+    //Allow clicking in panel
+    boxClick = function (e) {
+        e.stopPropagation();
+    };
+
+    //Main button click
+    mainBtn.on('click', openPanel);
+
+    //Prevent closing panel when clicking inside
+    panel.click(boxClick);
+
+    //Click away closes panel when clicked in document
+    $(document).click(function () {
+        closePanelAnim();
+        if (clicks === 1) {
+            mainBtn.removeClass('rotateForward').toggleClass('rotateBackward');
+        }
+        clicks = 0;
+    });
+};
+
+$(".sidebar-toggle-icon").on("click", function () {
+    $(".filter-sidebar-overlay").fadeIn();
+    $(".filter-sidebar").addClass("toggle-sidebar-swipe");
+});
+
+$(".filter-cls-btn").on("click", function () {
+    $(".filter-sidebar").removeClass("toggle-sidebar-swipe");
+    $(".filter-sidebar-overlay").fadeOut();
+});
+
+$(".filter-sidebar-overlay").on("click", function () {
+    $(".filter-sidebar").removeClass("toggle-sidebar-swipe");
+    $(".filter-sidebar-overlay").fadeOut();
+});
+
+/*----------------------------- Sidebar Block Toggle -------------------------------- */    
+$(document).ready(function(){
+    $(".ec-shop-leftside .ec-sidebar-block .ec-sb-block-content,.ec-blogs-leftside .ec-sidebar-block .ec-sb-block-content,.ec-cart-rightside .ec-sidebar-block .ec-sb-block-content,.ec-checkout-rightside .ec-sidebar-block .ec-sb-block-content").addClass("ec-sidebar-dropdown");
+
+    $('.ec-sidebar-title').append( "<div class='ec-sidebar-res'><i class='ecicon eci-angle-down'></i></div>" );
+
+    $(".ec-sidebar-title .ec-sidebar-res").click(function() {
+        var $this = $(this).closest('.ec-shop-leftside .ec-sidebar-block,.ec-blogs-leftside .ec-sidebar-block,.ec-cart-rightside .ec-sidebar-block,.ec-checkout-rightside .ec-sidebar-wrap').find('.ec-sidebar-dropdown');
+        $this.slideToggle('slow');
+        $('.ec-sidebar-dropdown').not($this).slideUp('slow');
+    });
+});
+
+
+
+// demo.prototype.add
 
 window.demo8 = new demo();

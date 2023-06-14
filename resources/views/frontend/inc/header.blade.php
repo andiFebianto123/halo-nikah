@@ -100,8 +100,8 @@
                     <!-- Ec Header Logo Start -->
                     <div class="align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="assets/images/logo/logo-8.png" alt="Site Logo" /><img
-                                    class="dark-logo" src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
+                            <a href="index.html"><img src="{{ URL::asset('assets/images/logo/logo-8.png') }}" alt="Site Logo" /><img
+                                    class="dark-logo" src="{{ URL::asset('assets/images/logo/dark-logo-8.png') }}" alt="Site Logo"
                                     style="display: none;" /></a>
                         </div>
                     </div>
@@ -160,8 +160,8 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo-8.png" alt="Site Logo" /><img
-                                class="dark-logo" src="assets/images/logo/dark-logo-8.png" alt="Site Logo"
+                        <a href="index.html"><img src="{{ URL::asset('assets/images/logo/logo-8.png') }}" alt="Site Logo" /><img
+                                class="dark-logo" src="{{ URL::asset('assets/images/logo/dark-logo-8.png') }}" alt="Site Logo"
                                 style="display: none;" /></a>
                     </div>
                 </div>

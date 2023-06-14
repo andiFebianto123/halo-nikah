@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\TopProduct;
+// use App\Models\TopProduct;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -13,7 +13,7 @@ class CardProduct extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($id, TopProduct $item)
+    public function __construct($id, $item)
     {
         //
         $this->id = $id;
