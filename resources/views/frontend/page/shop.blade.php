@@ -257,7 +257,6 @@
     <script src="{{ URL::asset('assets/js/vendor/index.js') }}"></script>
     <script src="{{ URL::asset('assets/js/demo-8.js') }}"></script>
     <script src="{{ URL::asset('assets/js/URI.js') }}"></script>
-
     {{-- <script src="{{ URL::asset('assets/js/main.js')}}"></script> --}}
 
 

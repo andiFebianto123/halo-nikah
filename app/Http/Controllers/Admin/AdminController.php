@@ -20,7 +20,14 @@ class AdminController extends Controller
     function setup(){}
 
 
-    function admin_view($view, $params = []){
+    function admin_view($view, $p = []){
+
+        $params = $p;
+
+        if($this->crud->filterView != null){
+            $params['filter'] = $this->crud->filterView;
+        }
+
         return view('backend.'.$view)
         ->with('crud', $this->crud)
         ->with($params);

@@ -16,11 +16,15 @@
 	<div class="mt-2 mb-3">
 		<a href="{{ url($crud->url.'/create') }}" class="btn btn-primary"> Add {{ $crud->title }}</a>
 	</div>
+	@if (isset($filter))
+		{!! view($filter) !!}
+	@endif
 	<div class="row">
 		<div class="col-12">
 			<div class="card card-default">
 				<div class="card-body">
 					<div id="crud-control" class="row justify-content-between top-information">
+						
 					</div>
 					<div class="table-responsive">
 						<table id="table-datalist" class="table">
@@ -123,9 +127,9 @@
 			return columns_;
 		}
 
-		window.crud = $("#table-datalist");
-		if (window.crud.length !== 0){
-			window.crud = $("#table-datalist").DataTable({
+		if(typeof(window.crud) === 'undefined'){
+			window.crud = {};
+			window.crud.table = $("#table-datalist").DataTable({
 				"paging": true,
 				"lengthMenu": [[10, 30, 50, 75, -1], [10, 30, 50, 75, "All"]],
 				"pageLength": 10,
@@ -152,5 +156,8 @@
 			$('#table-datalist_info').appendTo($('#crud-pagination-control'));
 			$('#table-datalist_paginate').appendTo($('#crud-pagination-control'));
 		}
+
+	
+		
 	</script>
 @endpush

@@ -167,6 +167,7 @@ class ProductController extends AdminController
             }
         ]);
 
+        $this->crud->set_filter('product');
         // Add rule validation for create & update
 
         $this->crud->deny_access('info');
@@ -176,6 +177,12 @@ class ProductController extends AdminController
 
     function search(Request $request){
         // $this->crud->model = $this->crud->model->where('name', 'LIKE', '%kat%');
+        if(request()->kategori_id != null){
+            $this->crud->model = $this->crud->model->where('kategori_id', request()->kategori_id);
+        }
+        if(request()->vendor_id != null){
+            $this->crud->model = $this->crud->model->whereIn('vendor_id', request()->vendor_id);
+        }
         return parent::search($request);
     }
 

@@ -11,7 +11,7 @@
                 <div class="ec-all-product-inner">
                     <div class="ec-pro-image-outer">
                         <div class="ec-pro-image">
-                            <a href="#" class="image">
+                            <a href="{{ url('products/'.$item->id) }}" class="image">
                                 @php
                                     $images = 'product-default.jpg';
                                     if($item->product_image_1){
@@ -31,10 +31,11 @@
                         </div>
                     </div>
                     <div class="ec-pro-content">
-                        <h5 class="ec-pro-title"><a href="product-left-sidebar.html">{{ $item->name }}</a></h5>
+                        <h5 class="ec-pro-title"><a href="{{ url('products/'.$item->id) }}">{{ $item->name }}</a></h5>
                         <h6 class="ec-pro-stitle">
                             {!! product_rating($item->rate) !!}
                         </h6>
+                        @if (intval($item->discounted_price) > 0)
                         <div class="ec-pro-rat-pri-inner mt-6">
                             <div class="ec-pro-rat-pri-inner">
                                 <span class="ec-price">
@@ -42,6 +43,8 @@
                                 </span>
                             </div>
                         </div>
+                        @endif
+                        
                         <div class="ec-pro-rat-price">
                             <div class="ec-pro-rat-pri-inner">
                                 <span class="ec-price">

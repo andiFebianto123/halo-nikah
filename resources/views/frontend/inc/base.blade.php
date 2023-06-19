@@ -27,7 +27,7 @@
    <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
 
    @yield('style')
-   
+   @vite(['resources/js/primary.js'])
 </head>
 <body>
     {{-- <div id="ec-overlay">

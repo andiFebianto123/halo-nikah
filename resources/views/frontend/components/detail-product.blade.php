@@ -139,6 +139,7 @@
             @if ($cart_open) 
                 <div id="custom-buy-product" class="ec-quickview-qty">
                     <div id="form-detail-product" class="qty-plus-minus">
+                        <input type="hidden" id="url_id" name="url_id" value="{{url('products/'.$item->id)}}" />
                         <input id="images" type="hidden" value="{{ URL::asset('storage/images/product/'.$images) }}" name="images" />
                         <input type="hidden" name="name" id="name" value="{{ $item->name }}">
                         <div class="dec ec_qtybtn">-</div>
@@ -162,11 +163,12 @@
         if(typeof addToCart == 'undefined'){
             function addToCartCustom(){
                 // get an image url
+                var url = $('#form-detail-product').find('#url_id').val();
                 var img_url = $('#form-detail-product').find("#images").val();
                 var p_name = $('#form-detail-product').find('#name').val();
                 var p_price = $('#form-detail-product').find('#price').val();
                 var qty = $('#form-detail-product').find('#qty').val();
-                demo8.addToCart(img_url, p_name, p_price, qty);
+                demo8.addToCart(url, img_url, p_name, p_price, qty);
             }
         }
 

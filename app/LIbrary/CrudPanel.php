@@ -7,12 +7,18 @@
         public $title;
         public $model;
         public $columns = [];
+        public $filterView = null;
         public $permissions = [
             'create', 'update', 'delete', 'info'
         ];
 
+
         function __construct()
         {}
+
+        function set_filter($namefilter){
+            $this->filterView = "backend.filters.".$namefilter;
+        }
 
         function set_model($modelclass){
             $this->model = new $modelclass;

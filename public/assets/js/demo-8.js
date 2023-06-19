@@ -257,6 +257,9 @@ function ecCheckCookie()
     });
 
     demo.prototype.formatRupiah = function(angka, prefix){
+        if(typeof(angka) == 'number'){
+            angka = angka.toString();
+        }
         var number_string = angka.replace(/[^,\d]/g, '').toString(),
         separator,
         split   		= number_string.split(','),
@@ -293,10 +296,87 @@ function ecCheckCookie()
         });
     };
 
-    demo.prototype.addToCart = function(img_url, p_name, p_price, qty){
-        var count = $(".ec-cart-count").html();        
+    demo.prototype.sumTotalCart = function(Store){
+        var cart = Store;
+        var total = 0;
+        if(cart !== undefined){
+            cart.data.forEach(function(item){
+                total += (item.price * item.qty)
+            });
+        }
+        total = this.formatRupiah(total, '');
+        $('.cart-sub-total .cart-table .text-right').html(total);
+        var cart_total = $('#total_cart');
+        if(cart_total.length > 0){
+            cart_total.html(total);
+        }
+    }
+
+    demo.prototype.removeCart = function(id){
+        // remove cart in local storage
+        return new Promise(function(resolve){
+            var cart = store.get('hello_nikah_cart');
+            if(cart === undefined){
+                resolve(0);
+            }
+            var new_data = cart.data.filter(function(item){ 
+                return item.id != id;
+            });
+
+            if(new_data.length == 0){
+                cart.increment_id = 0;
+            }
+
+            store.set('hello_nikah_cart', {
+                ...cart,
+                data:[...new_data]
+            });
+            // this.sumTotalCart(cart);
+            resolve(1);
+        });
+    }
+
+    demo.prototype.addToCart = function(url, img_url, p_name, p_price, qty){
+        var count = $(".ec-cart-count").html();      
         count++;
         $(".ec-cart-count").html(count);
+        let id = 0;
+
+        var cart = store.get('hello_nikah_cart');
+        if(cart !== undefined){
+            var data = cart.data
+            id = cart.increment_id + 1;
+
+            data.push({
+                id: id,
+                url: url,
+                image: img_url,
+                name: p_name,
+                price: p_price,
+                qty: qty,
+            });
+
+            store.set('hello_nikah_cart', {
+                ...cart, 
+                increment_id: id,
+                data: [...data]
+            })
+        }else{
+            id = 1;
+            store.set('hello_nikah_cart', {
+                name: 'My Cart',
+                increment_id: 1,
+                data:[{
+                    id: id,
+                    url: url,
+                    image: img_url,
+                    name:p_name,
+                    price:p_price,
+                    qty:qty
+                }],
+            });
+        }
+        // console.log(cart);
 
         // Remove Empty message    
         $(".emp-cart-msg").parent().remove();
@@ -304,15 +384,15 @@ function ecCheckCookie()
         var p_price_rupiah = this.formatRupiah(p_price, 'Rp.');
         
         var p_html = '<li>'+
-                        '<a href="product.html" class="sidecart_pro_img"><img src="'+ img_url +'" alt="product"></a>'+
+                        '<a href="'+url+'" class="sidecart_pro_img"><img src="'+ img_url +'" alt="product"></a>'+
                         '<div class="ec-pro-content">'+
-                            '<a href="product.html" class="cart_pro_title">'+ p_name +'</a>'+
+                            '<a href="'+url+'" class="cart_pro_title">'+ p_name +'</a>'+
                         '<span class="cart-price"><span>'+ p_price_rupiah +'</span> x '+qty+'</span>'+
-                            '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>'+
-                                '<input type="hidden" name="price[]" value="'+p_price+'" />'+
-                                '<input class="qty-input" type="text" name="ec_qtybtn[]" value="'+qty+'">'+
-                            '<div class="inc ec_qtybtn">+</div></div>'+
-                            '<a href="javascript:void(0)" class="remove">×</a>'+
+                            // '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>'+
+                            //     '<input type="hidden" name="price[]" value="'+p_price+'" />'+
+                            //     '<input class="qty-input" type="text" name="ec_qtybtn[]" value="'+qty+'">'+
+                            // '<div class="inc ec_qtybtn">+</div></div>'+
+                            '<a href="javascript:void(0)" data-id="'+id+'"  class="remove">×</a>'+
                         '</div>'+
                     '</li>';
 
@@ -320,6 +400,7 @@ function ecCheckCookie()
         $("#addtocart_toast").addClass("show");
         setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
         this.refreshActionQty();
+        cartLoad();
     }
 
     /*--------------------- Add To Cart -----------------------------------*/
@@ -365,22 +446,26 @@ function ecCheckCookie()
             $ecMenuToggle.find("a").removeClass("close");
         });
 
-        $("body").on("click", ".ec-pro-content .remove", function(){
+        $("body").on("click", ".ec-pro-content .remove", async function(){
 
         // $(".ec-pro-content .remove").on("click", function () {
+            var id = $(this).attr('data-id');
+
+            if(await demo8.removeCart(id)){
+                var cart_product_count = $(".eccart-pro-items li").length;
             
-            var cart_product_count = $(".eccart-pro-items li").length;
-            
-            $(this).closest("li").remove();
-            if (cart_product_count == 1) {
-                $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
+                $(this).closest("li").remove();
+                if (cart_product_count == 1) {
+                    $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
+                }
+
+                var count = $(".ec-cart-count").html();            
+                count--;
+                $(".ec-cart-count").html(count);
+
+                cart_product_count--;
+                cartLoad();
             }
-
-            var count = $(".ec-cart-count").html();            
-            count--;
-            $(".ec-cart-count").html(count);
-
-            cart_product_count--;
         });    
         
     })();
@@ -1486,5 +1571,69 @@ $(document).ready(function(){
 
 
 // demo.prototype.add
-
 window.demo8 = new demo();
+
+function cartLoad(){
+    var cart_table = $('.cart-table-content table tbody');
+
+    var cart = store.get('hello_nikah_cart');
+    var cart_count = 0;
+
+    let total_cart_price = 0;
+    $('.eccart-pro-items').html('');
+    cart_table.html('');
+    if((cart !== undefined) 
+        && (cart.data.length > 0)){
+
+        cart.data.forEach(function(item){
+            cart_count++;
+            var price_rupiah = demo8.formatRupiah(item.price);
+            var total = item.price * item.qty;
+            var total_price = demo8.formatRupiah(total, '');
+
+            var p_html = '<li>'+
+                '<a href="'+item.url+'" class="sidecart_pro_img"><img src="'+ item.image +'" alt="product"></a>'+
+                '<div class="ec-pro-content">'+
+                    '<a href="'+item.url+'" class="cart_pro_title">'+ item.name +'</a>'+
+                '<span class="cart-price"><span>'+ price_rupiah +'</span> x '+item.qty+'</span>'+
+                    '<a href="javascript:void(0)" data-id="'+item.id+'" class="remove">×</a>'+
+                '</div>'+
+            '</li>';
+            $('.eccart-pro-items').append(p_html);
+
+            if(cart_table.length > 0){
+                $('.cart-table-content table tbody').append(`
+                <tr id="${item.id}">
+                    <td data-label="Product" class="ec-cart-pro-name"><a
+                            href="${item.url}"><img
+                                class="ec-cart-pro-img mr-4"
+                                src="${item.image}" alt="" 
+                    />${item.name}</a></td>
+                    <td data-label="Price" class="ec-cart-pro-price"><span
+                            class="amount">${price_rupiah}</span></td>
+                    <td data-label="Quantity" style="text-align:center;">
+                        ${item.qty}
+                    </td>
+                    <td data-label="Total" class="ec-cart-pro-subtotal">${total_price}</td>
+                    <td data-label="Remove" class="ec-cart-pro-remove">
+                        <a href="#" onclick="removeCart(${item.id})"><i class="ecicon eci-trash-o"></i></a>
+                    </td>
+                </tr>
+                `);
+            }
+
+        });
+    }
+    demo8.sumTotalCart(cart);
+    $(".ec-cart-count").html(cart_count);
+}
+
+async function removeCart(id){
+    event.preventDefault();
+    let elem = $(`.cart-table-content table tr#${id}`);
+    if(await demo8.removeCart(id)){
+        elem.remove();
+        console.log('hallo');
+        cartLoad();
+    }
+}

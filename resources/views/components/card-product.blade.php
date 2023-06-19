@@ -83,8 +83,7 @@
                         $('#ec-single-countdown-popup').countdowntimer('destroy');
                 }            
             });
-                function showModalProduct(id){
-                    
+            function showModalProduct(id){
                     setTimeout(() => {
                         $.ajax({
                             url: "{{ route('api.product') }}",

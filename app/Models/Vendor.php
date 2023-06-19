@@ -5,6 +5,7 @@ use App\Models\Kategorie;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\City;
+use App\Models\Province;
 
 class Vendor extends Model
 {
@@ -31,6 +32,10 @@ class Vendor extends Model
         'youtube_url_4',
         'status'
     ];
+
+    function province(){
+        return $this->belongsTo(Province::class, 'province', 'id');
+    }
 
     function kota(){
         return $this->belongsTo(City::class, 'city', 'id');

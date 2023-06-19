@@ -138,7 +138,7 @@
                                             <span>
                                                 by
                                                 <a href="/id/waktutemu-id" class="projectname strong is-have-project">{{ $item->vendor->name }}</a>
-                                                — {{ $item->vendor->service }}
+                                                — {{ $item->vendor->kategori->name }}
                                             </span>
                                         </div>
                             
@@ -208,9 +208,12 @@
                                         @endif
                                         
 
+                                        @if ($percentage)
                                         <div>
                                             <span class="percentage">Hemat {{ $percentage }}%</span>
                                         </div>
+                                        @endif
+                                        
 
                                         <div class="ec-spe-price mb-2">
                                             <span class="new-price">{!! price_format($item->price) !!}</span>
@@ -229,6 +232,7 @@
                                         @if ($cart_open)
                                             <div id="custom-buy-product-2" class="ec-single-qty">
                                                 <div id="form-detail-product-2" class="qty-plus-minus">
+                                                    <input type="hidden" id="url_id" name="url_id" value="{{url('products/'.$item->id)}}" />
                                                     <input id="images" type="hidden" value="{{ URL::asset('storage/images/product/'.$images) }}" name="images" />
                                                     <input type="hidden" name="name" id="name" value="{{ $item->name }}">
                                                     <input type="hidden" id="price" name="price" value="{{str_replace(".","",trim(intval($item->price)))}}" />
@@ -268,7 +272,7 @@
                             <div class="tab-content  ec-single-pro-tab-content">
                                 <div id="ec-spt-nav-details" class="tab-pane fade show active">
                                     <div class="ec-single-pro-tab-desc">
-                                        <pre>{{ $item->detail }}</pre>
+                                        <p>{{ $item->detail }}</p>
                                     </div>
                                 </div>
                                 <div id="ec-spt-nav-info" class="tab-pane fade">
@@ -445,7 +449,6 @@
     <script src="{{ URL::asset('assets/js/vendor/index.js') }}"></script>
     <script src="{{ URL::asset('assets/js/demo-8.js') }}"></script>
     <script src="{{ URL::asset('assets/js/URI.js') }}"></script>
-
     {{-- <script src="{{ URL::asset('assets/js/main.js')}}"></script> --}}
 @endsection
 
@@ -476,11 +479,12 @@
         if(typeof addToCart == 'undefined'){
             function addToCartCustom_2(){
                 // get an image url
+                var url = $('#form-detail-product-2').find('#url_id').val();
                 var img_url = $('#form-detail-product-2').find("#images").val();
                 var p_name = $('#form-detail-product-2').find('#name').val();
                 var p_price = $('#form-detail-product-2').find('#price').val();
                 var qty = $('#form-detail-product-2').find('#qty').val();
-                demo8.addToCart(img_url, p_name, p_price, qty);
+                demo8.addToCart(url, img_url, p_name, p_price, qty);
             }
             demo8.refreshActionQty();
         }

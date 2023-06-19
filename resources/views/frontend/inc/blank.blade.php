@@ -52,6 +52,11 @@
         </div>
     </div>
     <!-- Ekka Cart End -->
+    <script>
+        window.onload = function(){
+            cartLoad();
+        }
+    </script>
 @endsection
 
 @section('footer')

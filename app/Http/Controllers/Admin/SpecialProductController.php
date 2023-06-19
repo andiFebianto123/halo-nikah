@@ -35,10 +35,10 @@ class SpecialProductController extends AdminController
             'label' => 'Gambar Produk',
             'type' => 'function',
             'function' => function($item){
-                $img_1 = $item->product->product_image_1;
-                $img_2 = $item->product->product_image_2;
-                $img_3 = $item->product->product_image_3;
-                $img_4 = $item->product->product_image_4;
+                $img_1 = $item->product_image_1;
+                $img_2 = $item->product_image_2;
+                $img_3 = $item->product_image_3;
+                $img_4 = $item->product_image_4;
 
                 if($img_1){
                     return '<img 
@@ -80,19 +80,14 @@ class SpecialProductController extends AdminController
             'label' => 'Vendor',
             'type' => 'function',
             'search' => function($value, $query){
-                return $query->orWhereHas('product.vendor', function($q) use($value){
-                    $q->where('vendors.name', 'LIKE', '%'.$value.'%');
-                });
+                return $query->orWhere('vendors.name', 'LIKE', '%'.$value.'%');
             },
             'orderable' => true,
             'orderLogic' => function($query, $column, $direction){
-                return $query
-                ->leftJoin('products', 'products.id', '=', 'special_products.product_id')
-                ->leftJoin('vendors', 'vendors.id', '=', 'products.vendor_id')
-                ->orderBy('vendors.name', $direction)->select('special_products.*');
+                return $query->orderBy('vendors.name', $direction);
             },
             'function' => function($item){
-                return $item->product->vendor->name;
+                return $item->vendor_name;
             }
         ]);
 
@@ -102,16 +97,14 @@ class SpecialProductController extends AdminController
             'orderlable' => true,
             'type' => 'function',
             'function' => function($item){
-                return $item->product->name;
+                return $item->product_name;
             },
             'search' => function($value, $query){
-                return $query->orWhereHas('product', function($q) use($value){
-                    $q->where('products.name', 'LIKE', '%'.$value.'%');
-                });
+                return $query->orWhere('products.name', 'LIKE', '%'.$value.'%');
             },
             'orderLogic' => function($query, $column, $direction){
-                return $query->leftJoin('products', 'products.id', '=', 'top_products.product_id')
-                ->orderBy('products.name', $direction)->select('top_products.*');
+                return $query
+                ->orderBy('products.name', $direction);
             },
         ]);
 
@@ -152,7 +145,7 @@ class SpecialProductController extends AdminController
         ]);
 
         // Add rule validation for create & update
-
+        $this->crud->set_filter('product');
         $this->crud->deny_access('info');
         // $this->crud->deny_access('update');
         // $this->crud->deny_access('delete');
@@ -160,6 +153,35 @@ class SpecialProductController extends AdminController
 
     function search(Request $request){
         // $this->crud->model = $this->crud->model->where('name', 'LIKE', '%kat%');
+        $vendor_id = request()->vendor_id;
+        $kategori_id = request()->kategori_id;
+        $this->crud->model = $this->crud->model
+        ->join('products', 'products.id', '=', 'special_products.product_id')
+        ->join('vendors', 'vendors.id', '=', 'products.vendor_id')
+        ->select([
+            'special_products.id as id',
+            'products.id as product_id',
+            'products.name as product_name',
+            'vendors.id as vendor_id',
+            'vendors.name as vendor_name',
+            'products.product_image_1',
+            'products.product_image_2',
+            'products.product_image_3',
+            'products.product_image_4',
+            'is_permanently',
+            'date_start',
+            'date_end',
+            'type',
+        ]);
+
+        if($kategori_id != null){
+            
+            $this->crud->model = $this->crud->model->where('products.kategori_id', $kategori_id);
+
+        }
+        if($vendor_id != null){
+            $this->crud->model = $this->crud->model->whereIn('vendors.id', $vendor_id);
+        }
         return parent::search($request);
     }
 

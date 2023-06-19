@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\VendorController as VendorFrontend;
 use App\Http\Controllers\ProductController as ProductFrontend;
 
@@ -28,6 +29,10 @@ use App\Http\Controllers\ProductController as ProductFrontend;
 |
 */
 
+Route::get('/', function(){
+    return redirect('home');
+});
+
 // Frontend
 Route::get('home', [HomeController::class, 'index']);
 
@@ -38,6 +43,9 @@ Route::get('products/{id}', [ProductFrontend::class, 'detail']);
 // vendors
 Route::get('vendors', [VendorFrontend::class, 'index']);
 Route::get('vendors-detail', [VendorFrontend::class, 'detail']);
+
+// cart
+Route::get('cart', [CartController::class, 'index']);
 
 // API
 Route::prefix('api')->group(function(){

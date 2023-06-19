@@ -17,10 +17,8 @@ export default defineConfig({
             input: [
                 // scss
                 'resources/scss/frontend/demo8.scss',
-                // 'resources/css/app.scss', 
-                // 'resources/js/app.js',
-                // // 'resources/js/libs/app1.js' // jquery
-                // 'resources/js/main.jsx',
+                // JS
+                'resources/js/primary.js'
             ],
             refresh: true, 
         }),

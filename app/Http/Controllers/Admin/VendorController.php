@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\AdminController;
 class VendorController extends AdminController
 {
 
-    function setup(){
+    function setup(){ 
         $this->crud->set_url('vendor');
         $this->crud->set_model(Vendor::class);
         $this->crud->set_title(mb_ucfirst('vendor'));
@@ -65,8 +65,11 @@ class VendorController extends AdminController
         $this->crud->add_column([
             'name' => 'province',
             'label' => 'Province',
-            'type' => 'text',
+            'type' => 'function',
             'orderable' => true,
+            'function' => function($item){
+                return $item->province;
+            }
             // 'search' => function($value, $query){
             //     return $query->where('province', 'LIKE', '%'.$value.'%');
             // }
@@ -179,6 +182,8 @@ class VendorController extends AdminController
             }
         ]);
 
+        $this->crud->set_filter('vendor');
+
         // Add rule validation for create & update
 
         // $this->crud->deny_access('info');
@@ -189,6 +194,9 @@ class VendorController extends AdminController
     
     function search(Request $request){
         // $this->crud->model = $this->crud->model->where('name', 'LIKE', '%kat%');
+        if(request()->kategori_id != null){
+            $this->crud->model = $this->crud->model->where('kategori_id', request()->kategori_id);
+        }
         return parent::search($request);
     }
 
