@@ -119,24 +119,24 @@ class SliderBannerController extends AdminController
     function rule($id = null){
         if($id){
             return [
-                'title' => 'required|unique:slider_banners,title,'.$id,
-                'sub_title' => 'required',
+                'title' => 'nullable|unique:slider_banners,title,'.$id,
+                // 'sub_title' => '',
                 'img' => 'mimes:jpeg,jpg,png|max:10000',
-                'price' => 'required|numeric',
+                'price' => 'nullable|numeric',
                 'order' => 'required|numeric|min:1',
-                'button_text' => 'required',
-                'url' => 'required',
+                'button_text' => 'nullable',
+                'url' => 'nullable',
                 'status' => 'required',
             ];
         }
         return [
-            'title' => 'required|unique:slider_banners,title',
-            'sub_title' => 'required',
+            'title' => 'nullable|unique:slider_banners,title',
+            // 'sub_title' => 'required',
             'img' => 'mimes:jpeg,jpg,png|max:10000',
-            'price' => 'required|numeric',
+            'price' => 'nullable|numeric',
             'order' => 'required|numeric|min:1',
-            'button_text' => 'required',
-            'url' => 'required',
+            'button_text' => 'nullable',
+            'url' => 'nullable',
             'status' => 'required',
         ];
     }

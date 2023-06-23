@@ -44,7 +44,7 @@ Route::get('products/{id}', [ProductFrontend::class, 'detail']);
 
 // vendors
 Route::get('vendors', [VendorFrontend::class, 'index']);
-Route::get('vendors-detail', [VendorFrontend::class, 'detail']);
+Route::get('vendors/{id}', [VendorFrontend::class, 'detail']);
 
 // package
 Route::get('package', [PackageProductController::class, 'index']);

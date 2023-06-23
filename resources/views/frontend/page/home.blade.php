@@ -4,7 +4,7 @@
     // dd($title);
 @endphp
 <!-- Main Slider Start -->
-<div class="ec-main-slider section section-space-pb">
+<div class="ec-main-slider section section-space-pb mt-2">
     <div class="container">
         <x-slider-banner id="top" />
     </div>

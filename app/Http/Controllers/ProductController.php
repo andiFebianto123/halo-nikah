@@ -14,21 +14,22 @@ class ProductController extends ContentController
 {
     function __construct()
     {
-        $this->setTitle('Shop');
+        $this->setTitle('Product Detail');
     }
 
     
 
     function index(Request $request){
 
-        $kategories = Kategorie::where('name', '!=', 'Paket Lengkap')->where('status', 1)->get();
+        // $kategories = Kategorie::where('name', '!=', 'Paket Lengkap')->where('status', 1)->get();
+        $kategories = Kategorie::where('status', 1)->get();
 
         $products = Product::whereHas('vendor', function($query){
             $query->where('vendors.status', 1);
         })
         ->whereHas('kategori', function($query){
-            $query->where('kategories.name', '!=', 'Paket Lengkap')
-            ->where('kategories.status', 1);
+            // $query->where('kategories.name', '!=', 'Paket Lengkap')
+            $query->where('kategories.status', 1);
         })
         ->where('status', 1);
 

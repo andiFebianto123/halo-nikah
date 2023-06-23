@@ -45,7 +45,7 @@
                     </table>
                 </div>
                 <div class="cart_btn">
-                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                    <a href="{{ url('cart') }}" class="btn btn-primary">View Cart</a>
                     <a href="checkout.html" class="btn btn-secondary">Checkout</a>
                 </div>
             </div>
@@ -62,73 +62,7 @@
 @section('footer')
     <!-- Footer Start -->
 <footer class="ec-footer">
-    <div class="footer-newletter section-space-footer-p">
-        <div class="container">
-            <div class="row">
-                <div class="footer-cat-inner">
-                    <div class="footer-cat-block">
-                        <div class="footer-cat-stitle">Brands Directory</div>
-                        <div class="block">
-                            <span class="footer-cat-title">Fashion : </span>
-                            <a href="shop-left-sidebar-col-3.html">T-shirt</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Shirts</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">shorts & jeans </a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">jacket</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">dress & frock</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">innerwear</a>
-                            <a href="shop-left-sidebar-col-3.html">hosiery</a>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">footwear : </span>
-                            <a href="shop-left-sidebar-col-3.html">sport</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">formal</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Boots</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">casual</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">cowboy shoes</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">safety shoes</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Party wear shoes</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Branded</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Firstcopy</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Long shoes</a>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">jewellery : </span>
-                            <a href="shop-left-sidebar-col-3.html">Necklace</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Earrings</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Couple rings</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Pendants</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Crystal</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Bangles</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">bracelets</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">nosepin</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">chain</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Earrings</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Couple rings</a><span> | </span>
-                        </div>
-                        <div class="block">
-                            <span class="footer-cat-title">cosmetics : </span>
-                            <a href="shop-left-sidebar-col-3.html">Shampoo</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Bodywash</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Facewash</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">makeup kit</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">liner</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">lipstick</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">prefume</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">Body shop</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">scrub</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">hair gel</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">hair colors</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">hair dye</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">sunscreen</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">skin loson</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">liner</a><span> | </span>
-                            <a href="shop-left-sidebar-col-3.html">lipstick</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="footer-container">
         <div class="footer-top section-space-footer-p">
             <div class="container">

@@ -77,21 +77,21 @@
                                             <div class="row g-3">
                                                 {!! csrf_field() !!}
                                                 <div class="col-md-12 mb-3">
-                                                    <label for="name" class="form-label">Judul Pertama *</label>
+                                                    <label for="name" class="form-label">Judul Pertama </label>
                                                     <input type="text" class="form-control slug-title" name="title" value="{{ old('title') }}" id="title">
                                                     @error('title')
                                                          <p class="msg-error">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
-                                                    <label for="name" class="form-label">Judul Kedua *</label>
+                                                    <label for="name" class="form-label">Judul Kedua </label>
                                                     <input type="text" class="form-control slug-title" name="sub_title" value="{{ old('sub_title') }}" id="sub_title">
                                                     @error('sub_title')
                                                          <p class="msg-error">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
-                                                    <label class="form-label">Harga (Rp) *</label>
+                                                    <label class="form-label">Harga (Rp) </label>
                                                     <input type="text" class="form-control" id="input-price" value="{{ old('price') }}" placeholder="Enter price"/>
                                                     <input type="hidden" name="price" value="{{ old('price') }}" id="input-price-hidden" />
                                                     @error('price')
@@ -106,14 +106,14 @@
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
-                                                    <label for="name" class="form-label">Button Text *</label>
+                                                    <label for="name" class="form-label">Button Text </label>
                                                     <input type="text" class="form-control slug-title" name="button_text" value="{{ old('button_text') }}" id="button_text">
                                                     @error('button_text')
                                                          <p class="msg-error">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
-                                                    <label for="name" class="form-label">URL Action *</label>
+                                                    <label for="name" class="form-label">URL Action </label>
                                                     <input type="text" class="form-control slug-title" name="url" value="{{ old('url') }}" id="url">
                                                     @error('url')
                                                          <p class="msg-error">{{ $message }}</p>

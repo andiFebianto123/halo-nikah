@@ -23,14 +23,17 @@
             </div>
         </div>
         <div class="ec-pro-content">
-            <center>
-                <a href="{{ url('products/'.$item->id) }}"><h6 class="ec-pro-stitle">{{ $item->kategori->name }}</h6></a> 
-                <a href="{{ url('products/'.$item->id) }}"><h4 class="ec-pro-title">{{ $item->name }}</h4></a>
-                <span>{{ mb_ucfirst(strtolower($kota)) }}</span>
-                <div class="ec-pro-rat-price mt-2">
-                    {!! vendor_rating($item->rate) !!} 
-                </div>
-            </center>
+            <a href="{{ url('/vendors/'.$item->id) }}">
+                <center>
+                    <h6 class="ec-pro-stitle">{{ $item->kategori->name }}</h6>
+                    <h4 class="ec-pro-title">{{ $item->name }}</h4>
+                    <span>{{ mb_ucfirst(strtolower($kota)) }}</span>
+                    <div class="ec-pro-rat-price mt-2">
+                        {!! vendor_rating($item->rate) !!} 
+                    </div>
+                </center>
+            </a>
+            
             
         </div>
     </div>
