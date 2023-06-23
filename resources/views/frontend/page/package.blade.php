@@ -35,16 +35,17 @@
         $min_ = (request()->min != null) ? request()->min : null;
         $max_ = (request()->max != null) ? request()->max : null;
     @endphp
-    <section class="">
+
+    <section>
         <div class="container mb-4">
             <div class="row">
-                <div id="filter-package" class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="row">
-                        <div class="col-lg-1 segment-1">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div id="range_price_">
+                        <div class="logo">
                             <i class="fi-rr-usd-circle"></i>
                         </div>
-                        <div class="segment-2 col">
-                            <select class="form-select" id="range_price" aria-label="Default select example">
+                        <div class="select">
+                            <select name="" id="range_price" class="form-select">
                                 <option value="0" selected>Select Range Price</option>
                                 @foreach ($range_price as $price)
                                     <?php
@@ -57,15 +58,15 @@
                                         @if($min_ == $min && $max_ == $price->max) selected @endif
                                     >{!! price_format($min) !!}  -  {!! price_format($price->max) !!}</option>
                                 @endforeach
-                              </select>
+                            </select>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             
         </div>
     </section>
+
 
     <!-- Sart Shop -->
     <section class="ec-page-content-bnr section-space-pb">
