@@ -17,13 +17,20 @@ class ProductController extends ContentController
         $this->setTitle('Shop');
     }
 
+    
+
     function index(Request $request){
 
-        $kategories = Kategorie::where('status', 1)->get();
+        $kategories = Kategorie::where('name', '!=', 'Paket Lengkap')->where('status', 1)->get();
 
         $products = Product::whereHas('vendor', function($query){
             $query->where('vendors.status', 1);
-        })->where('status', 1);
+        })
+        ->whereHas('kategori', function($query){
+            $query->where('kategories.name', '!=', 'Paket Lengkap')
+            ->where('kategories.status', 1);
+        })
+        ->where('status', 1);
 
         if($request->search){
             $products = $products->where('name', 'LIKE', '%'.$request->search.'%');

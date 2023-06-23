@@ -10,11 +10,13 @@ use App\Http\Controllers\Admin\ApiCoreController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RangePriceController;
 use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PackageProductController;
 use App\Http\Controllers\VendorController as VendorFrontend;
 use App\Http\Controllers\ProductController as ProductFrontend;
 
@@ -43,6 +45,9 @@ Route::get('products/{id}', [ProductFrontend::class, 'detail']);
 // vendors
 Route::get('vendors', [VendorFrontend::class, 'index']);
 Route::get('vendors-detail', [VendorFrontend::class, 'detail']);
+
+// package
+Route::get('package', [PackageProductController::class, 'index']);
 
 // cart
 Route::get('cart', [CartController::class, 'index']);
@@ -153,6 +158,16 @@ Route::prefix('admin')->group(function () {
             Route::get('{id}', [TestimonialController::class, 'edit']);
             Route::post('{id}', [TestimonialController::class, 'update']);
             Route::delete('{id}', [TestimonialController::class, 'destroy']);
+        });
+
+        Route::prefix('widget-range-price')->name('widget.range-price')->group(function(){
+            Route::get('/', [RangePriceController::class, 'index']);
+            Route::post('search', [RangePriceController::class, 'search']);
+            Route::get('create', [RangePriceController::class, 'create']);
+            Route::post('create', [RangePriceController::class, 'store']);
+            Route::get('{id}', [RangePriceController::class, 'edit']);
+            Route::post('{id}', [RangePriceController::class, 'update']);
+            Route::delete('{id}', [RangePriceController::class, 'destroy']);
         });
 
 

@@ -19,42 +19,5 @@
     @endforeach
 </div>
 @push('custom-scripts')
-    <script>
-        $('#ec-cat-slider').owlCarousel({
-            margin:10,
-            loop: true,
-            dots:false,
-            nav:false,
-            smartSpeed: 1000,
-            autoplay:true,
-            items:3,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav:false
-                },
-                576: {
-                    items: 2,
-                    nav:false
-                },
-                768: {
-                    items: 2,
-                    nav:false
-                },
-                992: {
-                    items: 3,
-                    nav:false
-                },
-                1200: {
-                    items:4,
-                    nav:false
-                },
-                1367: {
-                    items: 4,
-                    nav:false
-                }
-            }
-        }); 
-    </script>
+    
 @endpush

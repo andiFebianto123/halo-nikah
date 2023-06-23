@@ -91,6 +91,11 @@
                                     <span class="nav-text">Testimonial</span>
                                 </a>
                             </li>
+                            <li class="{{ ( strpos(Route::currentRouteName(), 'widget.range-price') !== false ) ? 'active' : '' }}">
+                                <a class="sidenav-item-link" href="{{ url('admin/widget-range-price') }}">
+                                    <span class="nav-text">Harga Simulasi</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

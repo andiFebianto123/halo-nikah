@@ -161,15 +161,15 @@
                                                         <p class="msg-error">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-
+                                            
                                                 <div class="col-md-12 mb-3">
-                                                    <label class="form-label">Deskripsi Detai Produk</label>
-                                                    <textarea name="detail" class="form-control" rows="4">{{ old('detail') }}</textarea>
+                                                    <label class="form-label">Deskripsi Detail Produk</label>
+                                                    {{-- <div id="editor"></div> --}}
+                                                    <textarea name="detail" id="editor">{{ old('detail') }}</textarea>
                                                     @error('detail')
                                                          <p class="msg-error">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                
 
                                                 <div class="col-md-12 mb-3">
                                                     <label for="">Bintang *</label>
@@ -245,6 +245,8 @@
 	<!-- No Extra plugin used -->
 	<link href="{{ URL::asset('assets/plugins/data-tables/datatables.bootstrap5.min.css') }}" rel='stylesheet'>
 	<link href="{{ URL::asset('assets/plugins/data-tables/responsive.datatables.min.css') }}" rel='stylesheet'>
+    {{-- <link rel="stylesheet" href="{{ URL::asset('assets/plugins/ckeditor/sample/css/sample.css') }}"> --}}
+
 
     <style>
         .ec-vendor-uploads .ec-vendor-upload-detail label{
@@ -262,7 +264,6 @@
     </style>
     <link rel="stylesheet" href="{{ URL::asset('assets/plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/plugins/select2/select2-bootstrap-5-theme.min.css') }}">
-
 @endpush
 
 @push('scripts')
@@ -276,7 +277,24 @@
 	<script src="{{ URL::asset('assets/js/ekka.js') }}"></script> 
     <script src="{{ URL::asset('assets/plugins/select2/select2.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/cleave/cleave.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/ckeditor/build/ckeditor.js') }}"></script>
 	<script>
+       ClassicEditor.create( document.querySelector( '#editor' ), {
+            licenseKey: '',	
+            removePlugins:[
+                'Markdown'
+            ]				
+        })
+        .then( editor => {
+            window.editor = editor;
+        })
+        .catch( error => {
+            console.error( 'Oops, something went wrong!' );
+            console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+            console.warn( 'Build id: 50w64f7tpz5p-bxebq7z8j5tl' );
+            console.error( error );
+		});
+
 		$(function(){
             // $('#select2-kategori').select2({
             //     theme: 'bootstrap-5',

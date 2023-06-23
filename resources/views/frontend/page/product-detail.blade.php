@@ -271,8 +271,8 @@
                             </div>
                             <div class="tab-content  ec-single-pro-tab-content">
                                 <div id="ec-spt-nav-details" class="tab-pane fade show active">
-                                    <div class="ec-single-pro-tab-desc">
-                                        <p>{{ $item->detail }}</p>
+                                    <div class="ec-single-pro-tab-desc ck-editor__editable">
+                                        {!! $item->detail !!}
                                     </div>
                                 </div>
                                 <div id="ec-spt-nav-info" class="tab-pane fade">

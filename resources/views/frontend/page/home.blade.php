@@ -57,8 +57,49 @@
                 </div>
                 <!-- Deal of the day end -->
 
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ec Product tab Area End -->
+
+<section id="banner-simulasi" data-animation="fadeIn" class="section ec-offer-section section-space-p section-space-m" style="background-image:url('{{asset('assets/images/offer-image/111.jpg')}}') !important;">
+        
+        <div class="container row justify-content-end">
+            <div class="panel col-lg-4">
+                <h2 class="ec-title-rds"><span>Simulasi Pilihan Paket Harga</span></h2>
+                @foreach ($range_price as $range)
+                    @php
+                        $price_min = $range->min;
+                        $price_max = $range->max;
+                        if($price_min > 0){
+                            $price_min -= 1;
+                        }
+                    @endphp
+                    <a href="{{ url("/package?min=".$price_min."&max=".$price_max) }}" onclick='goToPackage("{{ url("/package?min=".$price_min."&max=".$price_max) }}")' >
+                        <div class="btn-list">
+                            <div class="btn-price">
+                                {!! price_format($price_min) !!}  -  {!! price_format($price_max) !!}
+                            </div>
+                            <div class="slider"></div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        </div>
+        
+</section>
+
+<section class="section ec-product-tab section-space-p">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar area start -->
+            <div class="ec-side-cat-overlay"></div>
+
+            <!-- Product area start -->
+            <div class="col col-md-12">
                 <!-- Product tab area start -->
-                <div class="row space-t-50">
+                <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
                             <h2 class="ec-title">Produk Pilihan Terbaik</h2>
@@ -91,339 +132,15 @@
                             </div>
                             <!-- ec 1st Product tab end -->
                             <!-- ec 2nd Product tab start -->
-                            {{-- <div class="tab-pane fade" id="clothes">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/94_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/94_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Jackets</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Mens Winter Leathers Jackets</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$59.00</span>
-                                                        <span class="old-price">$87.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/95_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/95_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Shorts</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Better Basics French Terry Sweatshorts</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$78.00</span>
-                                                        <span class="old-price">$85.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/88_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/88_1.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">T-Shirt</h6></a> 
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Relaxed Short full Sleeve T-Shirt</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$58.00</span>
-                                                        <span class="old-price">$65.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/89_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/89_1.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">top</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Girls pnk Embro design Top</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$45.00</span>
-                                                        <span class="old-price">$50.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/90_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/90_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Skirt</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Black Floral Wrap Midi Skirt</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$25.00</span>
-                                                        <span class="old-price">$35.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/91_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/91_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="flags">
-                                                        <span class="sale">Sale</span>
-                                                    </span>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Shirt</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Pure Garment Dyed Cotton Shirt</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$45.00</span>
-                                                        <span class="old-price">$56.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/92_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/92_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Jacket</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">MEN Yarn Fleece Full-Zip Jacket</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$49.00</span>
-                                                        <span class="old-price">$65.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.html" class="image">
-                                                        <img class="main-image"
-                                                            src="assets/images/product-image/93_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                            src="assets/images/product-image/93_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <div class="ec-pro-actions">
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                        <a href="#" class="ec-btn-group quickview" data-link-action="quickview" title="Quick view"
-                                                            data-bs-toggle="modal" data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                        <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <a href="javascript:void(0)"  title="Add To Cart" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <a href="shop-left-sidebar-col-3.html"><h6 class="ec-pro-stitle">Jacket</h6></a>
-                                                <h5 class="ec-pro-title"><a href="product-left-sidebar.html">Mens Winter Leathers Jackets</a></h5>
-                                                <div class="ec-pro-rat-price">
-                                                    <span class="ec-pro-rating">
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star fill"></i>
-                                                        <i class="ecicon eci-star"></i>
-                                                    </span>
-                                                    <span class="ec-price">
-                                                        <span class="new-price">$32.00</span>
-                                                        <span class="old-price">$45.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            
                         </div>
                     </div>
                 </div>
                 <!-- Product tab area end -->
-
             </div>
         </div>
     </div>
 </section>
-<!-- ec Product tab Area End -->
 
 <!--  Testimonial, Banner & Service Section Start -->
 <section class="section ec-ser-spe-section section-space-p">
@@ -577,7 +294,7 @@
                         <div class="ec-insta-inner">
                             <a href="#" target="_blank"><img src="assets/images/instragram-image/2.jpg" alt="">
 
-                            </a>
+                            </a> 
                         </div>
                     </div>
                     <!-- instagram item -->
@@ -734,4 +451,11 @@
     <!-- Main Js -->
     <script src="{{ URL::asset('assets/js/vendor/index.js') }}"></script>
     <script src="{{ URL::asset('assets/js/demo-8.js') }}"></script>
+
+    <script>
+        function goToPackage(url){
+            window.location.href = url;
+        }
+    </script>
+    
 @endsection

@@ -31,7 +31,7 @@
 
 	<!-- Ekka CSS -->
 	<link id="ekka-css" href="{{ URL::asset('assets/css/ekka.css') }}" rel="stylesheet" />
-
+	<link rel="stylesheet" href="{{ URL::asset('assets/css/custom-ckeditor.css') }}" />
 	<!-- FAVICON -->
 	<link href="{{ URL::asset('assets/img/favicon.png') }}" rel="shortcut icon" />
 

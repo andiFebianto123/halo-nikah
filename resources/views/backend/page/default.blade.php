@@ -100,7 +100,6 @@
 
 	<!-- Option Switcher -->
 	<script src="{{ URL::asset('assets/plugins/options-sidebar/optionswitcher.js') }}"></script>
-
 	<!-- Option Switcher -->
 	{{-- <script src="{{ URL::asset('assets/plugins/options-sidebar/optionswitcher.js') }}"></script> --}}
 

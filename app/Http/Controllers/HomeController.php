@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Kategorie;
 // use App\Models\Product;
+use App\Models\RangePrice;
 use App\Models\TopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContentController;
@@ -32,6 +33,11 @@ class HomeController extends ContentController
                     ->where('date_end', '>=', $date_now);
             });
         })->get();
+
+        $price_range = RangePrice::get();
+
+        $this->merge_data('range_price', $price_range);
+
         $this->merge_data('top_products', $top_products);
         
         return view('frontend.page.home', $this->getEntry());

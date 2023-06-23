@@ -25,8 +25,10 @@
 
    <!-- css Icon Font -->
    <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/custom-ckeditor.css') }}" />
 
    @yield('style')
+   @stack('custom-styles')
    @vite(['resources/js/primary.js'])
 </head>
 <body>

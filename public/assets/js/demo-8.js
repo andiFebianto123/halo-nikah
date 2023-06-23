@@ -1027,7 +1027,7 @@ function ecCheckCookie()
     dots:false,
     nav:true,
     smartSpeed: 1000,
-    autoplay:false,
+    autoplay:true,
     items:3,
     responsiveClass: true,
     responsive: {

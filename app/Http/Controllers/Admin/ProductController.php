@@ -101,7 +101,7 @@ class ProductController extends AdminController
             'type' => 'function',
             'orderable' => false,
             'function' => function($item){
-                return '<span>'.Str::limit($item->detail, 100, '...').'</span>';
+                return '<span>'.htmlspecialchars(Str::limit($item->detail, 100, '...')).'</span>';
             },
             'width' => 200,
         ]);

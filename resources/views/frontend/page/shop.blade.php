@@ -54,10 +54,10 @@
                         <div class="shop-pro-inner">
                             <div class="row mb-6">
                                 @foreach ($products as $product)
-                                        <x-card-product 
+                                    <x-card-product 
                                             :id="$product->id"
                                             :item="$product"
-                                        />
+                                    />
                                 @endforeach
                             </div>
                         </div>
@@ -258,6 +258,6 @@
     <script src="{{ URL::asset('assets/js/demo-8.js') }}"></script>
     <script src="{{ URL::asset('assets/js/URI.js') }}"></script>
     {{-- <script src="{{ URL::asset('assets/js/main.js')}}"></script> --}}
-
+    
 
 @endsection

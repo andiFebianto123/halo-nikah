@@ -72,7 +72,7 @@ if(! function_exists('product_rating_2')){
 
 if(! function_exists('price_format')){
     function price_format($price){
-        if($price == null){
+        if($price === false){
             return '';
         }
         return "Rp " . number_format($price,0,',','.'); 

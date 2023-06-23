@@ -70,8 +70,8 @@
         dots: false,
         arrows: true,
         infinite: true,
-        autoplay:false,
-        speed: 500,
+        autoplay:true,
+        speed: 400,
         slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [

@@ -48,10 +48,10 @@
 						  // Redraw the table
 						  if (typeof window.crud != 'undefined') {
 							  // Move to previous page in case of deleting the only item in table
-							  if(crud.rows().count() === 1) {
-							    crud.page("previous");
+							  if(crud.table.rows().count() === 1) {
+							    crud.table.page("previous");
 							  }
-							  crud.draw(false);
+							  crud.table.draw(false);
 						  }
                           flasher.success("{!! trans('custom.delete_confirmation_message') !!}", {timeout: 3000});
 

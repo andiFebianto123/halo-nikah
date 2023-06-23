@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 
 class CardProduct extends Component
 {
-    public $id, $item;
+    public $id, $item, $hide_modal;
     /**
      * Create a new component instance.
      */
@@ -18,6 +18,12 @@ class CardProduct extends Component
         //
         $this->id = $id;
         $this->item = $item;
+
+
+        $this->hide_modal = false;
+        if($item->kategori->name == 'Paket Lengkap'){
+            $this->hide_modal = true;
+        }
     }
 
     /**

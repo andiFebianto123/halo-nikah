@@ -32,35 +32,58 @@
                 @endif
                 <div class="ec-pro-actions">
                     {{-- <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a> --}}
-                    <a href="#" 
-                        class="ec-btn-group quickview" 
-                        data-link-action="quickview" 
-                        title="Quick view"
-                        data-bs-toggle="modal" 
-                        data-bs-target="#ec_quickview_modal"
-                        onClick="showModalProduct('{{ $item->id }}')">
-                        <i class="fi-rr-eye"></i>
-                    </a>
+                    @if ($hide_modal === false)
+                        <a href="#" 
+                            class="ec-btn-group quickview" 
+                            data-link-action="quickview" 
+                            title="Quick view"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#ec_quickview_modal"
+                            onClick="showModalProduct('{{ $item->id }}')">
+                            <i class="fi-rr-eye"></i>
+                        </a>
+                    @endif
+                    
                     {{-- <a href="compare.html" class="ec-btn-group compare" title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a> --}}
                     {{-- <a href="javascript:void(0)"  title="Add To Cart" data-price="{{str_replace(".","",trim(intval($item->price)))}}" class="ec-btn-group add-to-cart"><i class="fi-rr-shopping-basket"></i></a> --}}
                 </div>
             </div>
         </div>
         <div class="ec-pro-content">
-            <a href="{{ url('products/'.$item->id) }}"><h6 class="ec-pro-stitle">{{ $item->kategori->name }}</h6></a> 
-            <h5 class="ec-pro-title"><a href="{{ url('products/'.$item->id) }}">{{ $item->name }}</a></h5>
-            <div class="ec-pro-rat-price">
-                {!! product_rating($item->rate) !!}   
-                <span class="ec-price">
-                    <span class="new-price">{!! price_format($item->price) !!}</span>
-                    <span class="old-price">{!! price_format($item->discounted_price) !!}</span>
-                </span>
-            </div>
+            <a href="{{ url('products/'.$item->id) }}">
+                <span><h6 class="ec-pro-stitle">{{ $item->kategori->name }}</h6></span> 
+                <h5 class="ec-pro-title"><span>{{ $item->name }}</span></h5>
+                <div class="ec-pro-rat-price">
+                    {!! product_rating($item->rate) !!}   
+                    <span class="ec-price">
+                        <span class="new-price">{!! price_format($item->price) !!}</span>
+                        <span class="old-price">{!! price_format($item->discounted_price) !!}</span>
+                    </span>
+                </div>
+            </a>
+            
         </div>
     </div>
 </div>
 
 @once
+    @push('custom-styles')
+        <style>
+            .ec-pro-title span {
+                text-decoration: none;
+                color: #777;
+                display: block;
+                font-size: 13px;
+                line-height: 20px;
+                font-weight: 300;
+                letter-spacing: .85px;
+                text-transform: capitalize;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow:ellipsis;
+            }
+        </style>
+    @endpush
     @push('modal')
     <!-- Modal -->
         <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
