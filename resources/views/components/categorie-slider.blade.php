@@ -11,7 +11,7 @@
                 </div>
                 <div class="ec-category-desc">
                     <h3>{{ $item->name }}<span title="Category Items">({{ $item->count_product }})</span></h3>
-                    <a href="#" class="cat-show-all">Show All <i class="ecicon eci-angle-double-right"
+                    <a href="{{ url('products?kategori%5B%5D='.$item->id) }}" class="cat-show-all">Show All <i class="ecicon eci-angle-double-right"
                             aria-hidden="true"></i></a>
                 </div>
             </div>

@@ -7,13 +7,13 @@
                 <div class="col-12">
                     <div class="row ec_breadcrumb_inner">
                         <div class="col-md-6 col-sm-12">
-                            <h2 class="ec-breadcrumb-title">Products</h2>
+                            <h2 class="ec-breadcrumb-title">Vendors</h2>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <!-- ec-breadcrumb-list start -->
                             <ul class="ec-breadcrumb-list">
-                                <li class="ec-breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="ec-breadcrumb-item active">Products</li>
+                                <li class="ec-breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                                <li class="ec-breadcrumb-item active">Vendors</li>
                             </ul>
                             <!-- ec-breadcrumb-list end -->
                         </div>
@@ -22,14 +22,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Main Slider Start -->
-    <div class="ec-main-slider section section-space-pb">
-        <div class="container">
-            <x-slider-banner id="custom" />
-        </div>
-    </div>
-    <!-- Main Slider End -->
 
     <!-- Sart Shop -->
     <section class="ec-page-content-bnr section-space-pb">
@@ -75,7 +67,7 @@
                 <div class="filter-sidebar-overlay"></div>
                 <div class="ec-shop-leftside filter-sidebar">
                     <div class="ec-sidebar-heading">
-                        <h1>Filter Products By</h1>
+                        <h1>Filter Vendors By</h1>
                         <a class="filter-cls-btn" href="javascript:void(0)">×</a>
                     </div>
                     <div class="ec-sidebar-wrap">
@@ -107,15 +99,6 @@
                             </div>
                         </div>
                        
-                        <!-- Sidebar Price Block -->
-                        <div class="ec-sidebar-block">
-                            <div class="ec-sb-title">
-                                <h3 class="ec-sidebar-title">Price</h3>
-                            </div>
-                            <div class="ec-sb-block-content">
-                                
-                            </div>
-                        </div>
                         <button type="submit" class="mt-3 btn btn-lg btn-primary" tabindex="0">Submit</button>
                     </form>
                     </div>

@@ -14,7 +14,7 @@
                 <div class="container align-self-center">
                     <div class="row">
                         <div class="col-sm-12 align-self-center">
-                            <div class="ec-slide-content slider-animation">
+                            {{-- <div class="ec-slide-content slider-animation">
                                 <h2 class="ec-slide-stitle">{{ $item->sub_title }}</h2>
                                 <h1 class="ec-slide-title">{{ $item->title }}</h1>
                                 <div class="ec-slide-desc mt-2">
@@ -25,7 +25,7 @@
                                         class="ecicon eci-angle-double-right" aria-hidden="true"></i></a>
                                     @endif
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

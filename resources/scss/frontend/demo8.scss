@@ -9,7 +9,11 @@
 03. demo 8 css
 04. Responsive css
 -----------------------------------------------------------------------------------*/
-
+.body-bg-3 {
+    background-image: url(../../assets/images/bg/background-3.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
 // Typography ( Import Typography )
 @import "base/_typography";
 

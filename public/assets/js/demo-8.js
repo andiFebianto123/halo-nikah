@@ -1026,10 +1026,13 @@ function ecCheckCookie()
     loop: true,
     dots:false,
     nav:true,
-    smartSpeed: 1000,
+    // smartSpeed: 500,
     autoplay:true,
+    autoPlayTimeout:50,
+    autoplaySpeed:500,
     items:3,
     responsiveClass: true,
+    autoplayHoverPause:false,
     responsive: {
 		0: {
 			items: 1,

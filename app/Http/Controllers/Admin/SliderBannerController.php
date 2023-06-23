@@ -121,22 +121,22 @@ class SliderBannerController extends AdminController
             return [
                 'title' => 'required|unique:slider_banners,title,'.$id,
                 'sub_title' => 'required',
-                'img' => 'mimes:jpeg,jpg|max:10000',
+                'img' => 'mimes:jpeg,jpg,png|max:10000',
                 'price' => 'required|numeric',
                 'order' => 'required|numeric|min:1',
                 'button_text' => 'required',
-                'url' => 'required|url',
+                'url' => 'required',
                 'status' => 'required',
             ];
         }
         return [
             'title' => 'required|unique:slider_banners,title',
             'sub_title' => 'required',
-            'img' => 'mimes:jpeg,jpg|max:10000',
+            'img' => 'mimes:jpeg,jpg,png|max:10000',
             'price' => 'required|numeric',
             'order' => 'required|numeric|min:1',
             'button_text' => 'required',
-            'url' => 'required|url',
+            'url' => 'required',
             'status' => 'required',
         ];
     }

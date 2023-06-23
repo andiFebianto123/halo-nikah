@@ -50,11 +50,11 @@
                 @endforeach
 
                 <!-- Deal of the day Start -->
-                <div class="row space-t-50" data-animation="fadeIn">
+                {{-- <div class="row space-t-50" data-animation="fadeIn">
                     <!--  Special Section Start -->
                     <x-special-product-slider id="1" />
                     <!--  Special Section End -->
-                </div>
+                </div> --}}
                 <!-- Deal of the day end -->
 
             </div>

@@ -31,7 +31,7 @@
    @stack('custom-styles')
    @vite(['resources/js/primary.js'])
 </head>
-<body>
+<body class="body-bg-3">
     {{-- <div id="ec-overlay">
         <div class="ec-ellipsis">
             <div></div>
