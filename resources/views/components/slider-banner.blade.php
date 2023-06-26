@@ -39,6 +39,17 @@
     </div>
 </div>
 
+@push('custom-styles')
+    <style>
+        @media only screen and (max-width: 991px){
+            .ec-slider .slide-1 {
+                background-size: contain !important;
+            }
+        }
+    </style>
+@endpush
+
+
 @push('custom-scripts')
     <script>
         if(typeof(window.banners) != 'object'){

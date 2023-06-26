@@ -307,7 +307,7 @@ class ProductController extends AdminController
             }
 
             if($req->product_image_3 != null){
-                $filenameWithExt = $req->product_image_1->getClientOriginalName();
+                $filenameWithExt = $req->product_image_3->getClientOriginalName();
                 //Get just filename
                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
                 // Get just ext
@@ -407,7 +407,7 @@ class ProductController extends AdminController
                 $extension = $product_image_2->getClientOriginalExtension();
                 // Filename to store
                 $fileNameToStore2 = $filename.'_'.time().'.'.$extension;
-                $path = $product_image_1->storeAs('public/images/product',$fileNameToStore2);
+                $path = $product_image_2->storeAs('public/images/product',$fileNameToStore2);
                 $product_image_2 = $fileNameToStore2;
             }
 

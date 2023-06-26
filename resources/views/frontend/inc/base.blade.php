@@ -19,14 +19,18 @@
     <meta name="author" content="ashishmaraviya">
     
    <!-- site Favicon -->
-   <link rel="icon" href="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" sizes="32x32" />
-   <link rel="apple-touch-icon" href="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" />
-   <meta name="msapplication-TileImage" content="{{ URL::asset('assets/images/favicon/favicon-8.png') }}" />
+   <link rel="icon" href="{{ URL::asset('assets/images/logo/mini-logo.png') }}" sizes="32x32" />
+   <link rel="apple-touch-icon" href="{{ URL::asset('assets/images/logo/mini-logo.png') }}" />
+   <meta name="msapplication-TileImage" content="{{ URL::asset('assets/images/logo/mini-logo.png') }}" />
 
    <!-- css Icon Font -->
    <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
    <link rel="stylesheet" href="{{ URL::asset('assets/css/custom-ckeditor.css') }}" />
-
+    <style>
+        #ec-mobile-menu .ec-menu-content ul li.active > a{
+            color: #c6ac71 !important;
+        }
+    </style>
    @yield('style')
    @stack('custom-styles')
    @vite(['resources/js/primary.js'])

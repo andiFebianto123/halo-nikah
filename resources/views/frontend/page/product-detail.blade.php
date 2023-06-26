@@ -386,7 +386,7 @@
 
     <style>
         .new-price {
-            color: #ff909d;
+            color: #82746b;
             font-weight: 700;
             font-size: 20px;
             letter-spacing: 0

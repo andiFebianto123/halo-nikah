@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Kategorie;
 
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class ContentController extends Controller
     }
 
     function getEntry(){
+        $kategori = Kategorie::where('status', 1)->get();
+        $this->datalist['kategori_list'] = $kategori;
         if($this->title){
             $this->datalist['title'] = $this->title;
         }
