@@ -317,9 +317,6 @@
             $.ajax({
                 url: "{{ url('admin/api-get-province') }}",
                 method:'post',
-                headers: {
-					'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
                 data:{
                     id: id_province,
                 }
@@ -340,9 +337,6 @@
             ajax: {
                 url: "{{ url('admin/api-get-province') }}",
                 method:'POST',
-                headers: {
-					'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
                 data: function (params) {
                     var query = {
                         name: params.term,
@@ -362,9 +356,6 @@
             $.ajax({
                 url: "{{ url('admin/api-get-city') }}",
                 method:'post',
-                headers: {
-					'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
                 data:{
                     province_id: id_province,
                 }
@@ -388,9 +379,6 @@
                 $.ajax({
                     url: "{{ url('admin/api-get-city') }}",
                     method:'post',
-                    headers: {
-					    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
                     data:{
                         province_id: province_id,
                     }

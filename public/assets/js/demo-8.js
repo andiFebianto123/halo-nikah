@@ -1055,12 +1055,12 @@ function ecCheckCookie()
 			nav:false
 		},
 		1200: {
-			items:4,
+			items:3,
 			dots:true,
 			nav:false
 		},
 		1367: {
-			items: 4,
+			items: 3,
 			dots:true,
 			nav:false
 		}

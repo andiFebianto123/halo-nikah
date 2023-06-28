@@ -1,9 +1,9 @@
 @php
-    $index = 0;
+    $index = 5;
 @endphp
 <div id="ec-cat-slider" class="ec-cat-slider owl-carousel">
     @foreach ($dataset as $item)
-        <?php $index++; ?>
+        <?php //$index++; ?>
         <div class="ec_cat_content ec_cat_content_{{ $index }}">
             <div class="ec_cat_inner ec_cat_inner-{{ $index }}">
                 <div class="ec-category-image">
@@ -20,4 +20,12 @@
 </div>
 @push('custom-scripts')
     
+@endpush
+
+@push('custom-styles')
+<style>
+    .ec_cat_inner {
+        background-color: #fff !important;
+    }
+</style>
 @endpush
