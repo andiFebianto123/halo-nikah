@@ -181,5 +181,13 @@
     
     @stack('custom-scripts')
 
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        });
+    </script>
+
 </body>
 </html>

@@ -46,7 +46,7 @@
                 </div>
                 <div class="cart_btn">
                     <a href="{{ url('cart') }}" class="btn btn-primary">View Cart</a>
-                    <a href="checkout.html" class="btn btn-secondary">Checkout</a>
+                    <a href="#" id="print-checkout" data-url="{{ route('api.print.invoice') }}" class="btn btn-secondary"><i class="fi-rr-print"></i>&nbsp;Print</a>
                 </div>
             </div>
         </div>

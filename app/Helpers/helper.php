@@ -85,4 +85,14 @@ if(! function_exists('str_limit')){
     }
 }
 
+if(!function_exists('format_base64')){
+    function format_base64($path){
+        $path = asset($path);
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $base64;
+    }
+}
+
 ?>

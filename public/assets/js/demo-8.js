@@ -1640,3 +1640,31 @@ async function removeCart(id){
         cartLoad();
     }
 }
+
+$('#print-checkout').bind('click', function(e){
+    e.preventDefault();
+    var cart = store.get('hello_nikah_cart');
+    var data = [];
+    var url = $(this).attr('data-url');
+    if(cart.data){        
+        $.ajax({
+            url: url,
+            method:'GET',
+            data:{
+                params: cart.data
+            },
+            xhrFields: {
+                responseType: 'blob'
+            },
+            beforeSend:function(){}
+        }).done(function(res){
+            const downloadUrl = URL.createObjectURL(res);
+            window.open(downloadUrl, "_blank");
+        });
+    }
+});
+
+$('#print-checkout-2').click(function(e){
+    e.preventDefault();
+    $('#print-checkout').click();
+});

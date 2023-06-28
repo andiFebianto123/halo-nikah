@@ -79,7 +79,8 @@
                     <a href="{{ url("/package?min=".$price_min."&max=".$price_max) }}" onclick='goToPackage("{{ url("/package?min=".$price_min."&max=".$price_max) }}")' >
                         <div class="btn-list">
                             <div class="btn-price">
-                                {!! price_format($price_min) !!}  -  {!! price_format($price_max) !!}
+                                {{-- {!! price_format($price_min) !!}  -  {!! price_format($price_max) !!} --}}
+                                {{ $range->ket }}
                             </div>
                             <div class="slider"></div>
                         </div>

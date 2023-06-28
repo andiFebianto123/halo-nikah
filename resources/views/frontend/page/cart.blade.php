@@ -54,7 +54,7 @@
                                         <div class="col-lg-12">
                                             <div class="ec-cart-update-bottom">
                                                 <a href="{{ url('products') }}">Continue Shopping</a>
-                                                <button class="btn btn-primary">Check Out</button>
+                                                <button id="print-checkout-2" data-url="{{ route('api.print.invoice') }}" class="btn btn-primary"><i class="fi-rr-print"></i>&nbsp;Print</button>
                                             </div>
                                         </div>
                                     </div>
@@ -89,6 +89,12 @@
         </div>
     </section>
 @endsection
+
+@push('custom-scripts')
+    <script>
+        
+    </script>
+@endpush
 
 @push('pop-up')
 <!-- Newsletter Modal Start -->

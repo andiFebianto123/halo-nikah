@@ -26,7 +26,7 @@ class ProductCategorieSlider extends Component
             })->where(function($query) use($id){
                 $query->where('kategori_id', $id)
                 ->where('status', 1);
-            })->get();
+            })->inRandomOrder()->limit(8)->get();
         }
     }
 

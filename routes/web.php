@@ -51,11 +51,13 @@ Route::get('package', [PackageProductController::class, 'index']);
 
 // cart
 Route::get('cart', [CartController::class, 'index']);
+Route::get('cart/print', [CartController::class, 'print_struck']);
 
 // API
 Route::prefix('api')->group(function(){
     Route::name('api.')->group(function(){
         Route::post('get-product-detail', [ProductController::class, 'get_product'])->name('product');
+        Route::get('print-invoice', [CartController::class, 'print_struck'])->name('print.invoice');
     });
 });
 
