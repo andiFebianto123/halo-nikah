@@ -95,4 +95,10 @@ if(!function_exists('format_base64')){
     }
 }
 
+if(!function_exists('title_blog')){
+    function title_blog($str, $limit){
+        return htmlspecialchars(Str::limit($str, $limit, '...'));
+    }
+}
+
 ?>

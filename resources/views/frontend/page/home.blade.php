@@ -167,108 +167,28 @@
     <div class="container">
         <div class="row">
             <div class="ec-blog-slider owl-carousel" data-animation="fadeIn">
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/2.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Clothes</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">Curbside fashion Trends: How to Win the Pickup Battle.</a></h5>
+                @foreach ($blogs as $blog)
+                    <?php
+                        $time = \Carbon\Carbon::parse($blog->date)->format('M d, Y');
+                    ?>
+                    <div class="ec-blog-block">
+                        <div class="ec-blog-inner">
+                            <div class="ec-blog-image">
+                                <a href="blog-detail-left-sidebar.html">
+                                    <img class="blog-image" src="{{ URL::asset('storage/images/permalink/'.$blog->image) }}"
+                                        alt="Blog" style="width:339px; height:191px;" />
+                                </a>
+                            </div>
+                            <div class="ec-blog-content">
+                                <h5 class="ec-blog-title"><a
+                                        href="blog-detail-left-sidebar.html">{!! title_blog($blog->title, 35) !!}</a></h5>
 
-                            <div class="ec-blog-date">By<span>Mr Robin</span> / Jan 18, 2022</div>
+                                        <div class="ec-blog-date">By <span>{{ $blog->user->name }}</span> / {{ $time }}</div>
+                                    </div>
                         </div>
                     </div>
-                </div>
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/3.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Fashion</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">Clothes Retail KPIs 2021 Guide for Clothes Executives.</a></h5>
-
-                            <div class="ec-blog-date">By<span>Mr Admin</span> / Apr 06, 2022</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/4.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Shoes</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">EBT vendors: Claim Your Share of SNAP Online Revenue.</a></h5>
-
-                            <div class="ec-blog-date">By<span>Mr Selsa</span> / Feb 10, 2022</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/5.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Electronics</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">Curbside fashion Trends: How to Win the Pickup Battle.</a></h5>
-
-                            <div class="ec-blog-date">By<span>Mr Pawar</span> / Mar 15, 2022</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/6.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Glasses</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">6 fashion Retail Industry Digital Strategies for 2021.</a></h5>
-
-                            <div class="ec-blog-date">By<span>Mr Natly</span> / Jun 02, 2022</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-blog-block">
-                    <div class="ec-blog-inner">
-                        <div class="ec-blog-image">
-                            <a href="blog-detail-left-sidebar.html">
-                                <img class="blog-image" src="assets/images/blog-image/7.jpg"
-                                    alt="Blog" />
-                            </a>
-                        </div>
-                        <div class="ec-blog-content">
-                            <div class="ec-blog-cat"><a href="blog-left-sidebar.html">Jewellery</a></div>
-                            <h5 class="ec-blog-title"><a
-                                    href="blog-detail-left-sidebar.html">Why Should be Concerned About Instacart Patents.</a></h5>
-
-                            <div class="ec-blog-date">By<span>Mr Admin</span> / Feb 10, 2022</div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>
@@ -276,29 +196,29 @@
 <!--  Blog Section End -->
 @endsection
 
-@push('pop-up')
+@push('modal')
     <!-- Newsletter Modal Start -->
-<div id="ec-popnews-bg"></div>
-<div id="ec-popnews-box">
-    <div id="ec-popnews-close"><i class="ecicon eci-close"></i></div>
-    <div class="row">
-        <div class="col-md-7 disp-no-767">
-            <img src="assets/images/banner/newsletter-8.png" alt="newsletter">
-        </div>
-        <div class="col-md-5">
-            <div id="ec-popnews-box-content">
-                <h2>Subscribe Newsletter. 111</h2>
-                <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p>
-                {{-- <form id="ec-popnews-form" action="#" method="post">
-                    <input type="email" name="newsemail" placeholder="Email Address" required />
-                    <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
-                </form> --}}
+    <div id="ec-popnews-bg"></div> 
+    <div id="ec-popnews-box" style="width: 90%;max-width: 500px;">
+        <div id="ec-popnews-close"><i class="ecicon eci-close"></i></div>
+        <div class="row">
+            <div class="col disp-no-767" style="display:block !important;">
+                <img src="assets/images/banner/newsletter-8.png" alt="newsletter">
+            </div>
+            <div class="">
+                <div id="ec-popnews-box-content">
+                    <h2>Subscribe Newsletter. 111</h2>
+                    <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p>
+                    {{-- <form id="ec-popnews-form" action="#" method="post">
+                        <input type="email" name="newsemail" placeholder="Email Address" required />
+                        <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
+                    </form> --}}
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Newsletter Modal end -->
+    <!-- Newsletter Modal end -->
 @endpush
 
 @section('style')
@@ -339,6 +259,10 @@
                 flex: 0 0 auto;
                 /* width: 33.3333333333%; */
                 width: 100% !important;
+            }
+            .blog-image {
+                width:100% !important; 
+                height:18% !important;
             }
         }
 

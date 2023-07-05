@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost/laravel/adminlte-laravel'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -185,7 +185,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Flasher' => Flasher\Laravel\Facade\Flasher::class,
+        // 'Flasher' => Flasher\Laravel\Facade\Flasher::class,
     ])->toArray(),
 
 ];

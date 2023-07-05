@@ -647,42 +647,42 @@ function ecCheckCookie()
     //     }
     // }); 
 
-    $('.ec-blog-slider').owlCarousel({
-        margin:30,
-        loop: true,
-        dots:false,
-        nav:false,
-        smartSpeed: 1000,
-        autoplay:true,
-        items:3,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav:false
-            },
-            576: {
-                items: 2,
-                nav:false
-            },
-            768: {
-                items: 2,
-                nav:false
-            },
-            992: {
-                items: 3,
-                nav:false
-            },
-            1200: {
-                items:4,
-                nav:false
-            },
-            1367: {
-                items: 4,
-                nav:false
-            }
-        }
-    }); 
+    // $('.ec-blog-slider').owlCarousel({
+    //     margin:30,
+    //     loop: true,
+    //     dots:false,
+    //     nav:false,
+    //     smartSpeed: 1000,
+    //     autoplay:true,
+    //     items:3,
+    //     responsiveClass: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //             nav:false
+    //         },
+    //         576: {
+    //             items: 2,
+    //             nav:false
+    //         },
+    //         768: {
+    //             items: 2,
+    //             nav:false
+    //         },
+    //         992: {
+    //             items: 3,
+    //             nav:false
+    //         },
+    //         1200: {
+    //             items:4,
+    //             nav:false
+    //         },
+    //         1367: {
+    //             items: 4,
+    //             nav:false
+    //         }
+    //     }
+    // }); 
 
     /*--------------------- Trend Product Slider -------------------------------- */    
     $('.ec-trend-product .ec-trend-slider').slick({

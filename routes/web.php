@@ -2,12 +2,15 @@
 
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\ApiCoreController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\PackageProductController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RangePriceController;
@@ -15,10 +18,10 @@ use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\PackageProductController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\VendorController as VendorFrontend;
 use App\Http\Controllers\ProductController as ProductFrontend;
+use App\Http\Controllers\BlogController as BlogFrontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +55,9 @@ Route::get('package', [PackageProductController::class, 'index']);
 // cart
 Route::get('cart', [CartController::class, 'index']);
 Route::get('cart/print', [CartController::class, 'print_struck']);
+
+// blog
+Route::get('blogs', [BlogFrontend::class, 'index']);
 
 // API
 Route::prefix('api')->group(function(){
@@ -172,9 +178,30 @@ Route::prefix('admin')->group(function () {
             Route::delete('{id}', [RangePriceController::class, 'destroy']);
         });
 
+        Route::prefix('blog')->name('blog')->group(function(){
+            Route::get('/', [BlogController::class, 'index']);
+            Route::post('search', [BlogController::class, 'search']);
+            Route::get('create', [BlogController::class, 'create']);
+            Route::post('create', [BlogController::class, 'store']);
+            Route::get('{id}', [BlogController::class, 'edit']);
+            Route::post('{id}', [BlogController::class, 'update']);
+            Route::delete('{id}', [BlogController::class, 'destroy']);
+        });
+
+        Route::prefix('tag')->name('tag')->group(function(){
+            Route::get('/', [TagController::class, 'index']);
+            Route::post('search', [TagController::class, 'search']);
+            Route::get('create', [TagController::class, 'create']);
+            Route::post('create', [TagController::class, 'store']);
+            Route::get('{id}', [TagController::class, 'edit']);
+            Route::post('{id}', [TagController::class, 'update']);
+            Route::delete('{id}', [TagController::class, 'destroy']);
+        });
+
 
         Route::post('api-get-province', [ApiCoreController::class, 'showProvince']);
         Route::post('api-get-city', [ApiCoreController::class, 'showCity']);
+        Route::post('api-upload-image', [ApiCoreController::class, 'uploadImage']);
 
         // select 2 get product (top product)
         Route::post('api-get-product', [ApiCoreController::class, 'getProduct']);

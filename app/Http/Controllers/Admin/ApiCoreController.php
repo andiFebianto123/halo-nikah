@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\City;
 use App\Models\Product;
+use App\Models\Province;
 use App\Models\TopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Province;
-use App\Models\City;
 
 class ApiCoreController extends Controller
 {
@@ -131,5 +132,32 @@ class ApiCoreController extends Controller
         return response()->json([
             'result' => $results,
         ], 200);
+    }
+
+    function uploadImage(Request $request){
+        if($request->upload != null){
+            $filenameWithExt = $request->upload->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->upload->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore1 = $filename.'.'.$extension;
+            
+            if (Storage::exists('public/images/permalink/'.$fileNameToStore1)) {
+                Storage::delete('public/images/permalink/'.$fileNameToStore1);
+            }
+            
+            $path = $request->upload->storeAs('public/images/permalink',$fileNameToStore1);
+            return response()->json([
+                'url' => url('/').''.Storage::url('images/permalink/'.$fileNameToStore1),
+                'result' => true,
+            ]);
+        }
+        return response()->json([
+            'message' => 'Upload is not valid',
+            'result' => false,
+            'url' => false,
+        ], 403);
     }
 }

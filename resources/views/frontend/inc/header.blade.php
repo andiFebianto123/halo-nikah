@@ -111,8 +111,8 @@
                     <!-- Ec Header Search Start -->
                     <div class="align-self-center">
                         <div class="header-search">
-                            <form class="ec-btn-group-form" action="#">
-                                <input class="form-control" placeholder="Enter Your Product Name..." type="text">
+                            <form class="ec-btn-group-form" method="GET" action="{{ url('products') }}">
+                                <input class="form-control" name="search" placeholder="Enter Your Product Name..." type="text">
                                 <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
                             </form>
                         </div>
@@ -192,6 +192,7 @@
                             <li class="{{ (request()->is('products*')) ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>
                             <li class="{{ (request()->is('package*')) ? 'active' : '' }}"><a href="{{ url('/package') }}">Products Package</a></li>
                             <li class="{{ (request()->is('vendors*')) ? 'active' : '' }}"><a href="{{ url('/vendors') }}">Vendors</a></li>
+                            <li class="{{ (request()->is('blogs*')) ? 'active' : '' }}"><a href="{{ url('/blogs') }}">Blog</a></li>
                             <li class="{{ (request()->is('cart*')) ? 'active' : '' }}"><a href="{{ url('/cart') }}">Keranjang Anda</a></li>
                             {{-- <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                 <ul class="sub-menu">
@@ -367,6 +368,7 @@
                     <li class="{{ (request()->is('products*')) ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>   
                     <li class="{{ (request()->is('package*')) ? 'active' : '' }}"><a href="{{ url('/package') }}">Products Package</a></li>
                     <li class="{{ (request()->is('vendors*')) ? 'active' : '' }}"><a href="{{ url('/vendors') }}">Vendors</a></li>
+                    <li class="{{ (request()->is('blogs*')) ? 'active' : '' }}"><a href="{{ url('/blogs') }}">Blog</a></li>
                     <li class="{{ (request()->is('cart*')) ? 'active' : '' }}"><a href="{{ url('/cart') }}">Keranjang Anda</a></li>        
                 </ul>
             </div>

@@ -58,7 +58,7 @@
 			              // Hide the modal, if any
 			              $('.modal').modal('hide');
 			          } else {
-			              
+			              console.log('dsdsds');
                           flasher.error("{!! trans('custom.delete_confirmation_message_failed') !!}", {timeout: 3000})         	  
 			          }
 			      },

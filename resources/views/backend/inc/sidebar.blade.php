@@ -100,6 +100,20 @@
                     </div>
                 </li>
 
+                <li class="{{ (request()->is('admin/blog*')) ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="{{ url('admin/blog') }}">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span class="nav-text">Blog</span>
+                    </a>
+                </li>
+
+                <li class="{{ (request()->is('admin/tag*')) ? 'active' : '' }}">
+                    <a class="sidenav-item-link" href="{{ url('admin/tag') }}">
+                        <i class="mdi mdi-label"></i>
+                        <span class="nav-text">Tag</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

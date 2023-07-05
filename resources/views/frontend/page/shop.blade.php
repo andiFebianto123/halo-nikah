@@ -117,7 +117,7 @@
                                     <div id="ec-sliderPrice"
                                     data-value_min="{{ (request()->has('price_min')) ? request()->price_min : 0 }}"
                                     data-value_max="{{ (request()->has('price_max')) ? request()->price_max : 0 }}" 
-                                    class="filter__slider-price" data-min="0" data-max="50000000"
+                                    class="filter__slider-price" data-min="0" data-max="500000000"
                                     data-step="0"></div>
                                     {{-- <div class="ec-price-input">
                                         <label class="filter__label"><input type="text" class="filter__input"></label>

@@ -66,7 +66,7 @@ class PackageProductController extends ContentController
 
         $pagination['draw'] = $products->count();
 
-        $range_price = RangePrice::get();
+        $range_price = RangePrice::orderBy('min', 'ASC')->get();
 
         $this->merge_data('range_price', $range_price);
 

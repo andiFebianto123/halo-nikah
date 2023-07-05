@@ -334,7 +334,7 @@ class ProductController extends AdminController
             DB::commit();
             return redirect($this->crud->url);
         }catch (\Exception $e){
-                DB::rollBack();
+                DB::rollback();
                 flash()->addError($e->getMessage());
                 return redirect()->back()->withInput();
         }

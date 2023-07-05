@@ -9,6 +9,8 @@ use App\Models\RangePrice;
 use App\Models\TopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContentController;
+use App\Models\Blog;
+
 
 class HomeController extends ContentController
 {
@@ -34,7 +36,11 @@ class HomeController extends ContentController
             });
         })->get();
 
-        $price_range = RangePrice::get();
+        $price_range = RangePrice::orderBy('min', 'ASC')->get();
+
+        $blogs = Blog::orderBy('id', 'DESC')->limit(6)->get();
+
+        $this->merge_data('blogs', $blogs);
 
         $this->merge_data('range_price', $price_range);
 
