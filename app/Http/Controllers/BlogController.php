@@ -16,6 +16,38 @@ class BlogController extends ContentController
         $this->setTitle('Blog');
     }
 
+    function tags($slug){
+        $request = request();
+        $blogs = new Blog;
+        $blogs = $blogs->whereHas('tags', function($query) use($slug){
+            $query->where('slug', $slug);
+        });
+        $page = 1;
+        if($request->page){
+            $page = $request->page;
+        }
+
+        $limit = 9;
+
+        $offset = ($page * $limit) - $limit;
+
+        $pagination = [
+            'total' => $blogs->count(),
+            'limit' => $limit,
+            'page' => $page,
+            'offset' => $offset
+        ];
+
+        $tag = Tag::where('slug', $slug)->first();
+
+        $blogs = $blogs->offset($offset)->limit($limit)->get();
+        $pagination['draw'] = $blogs->count();
+        $this->merge_data('pagination', $pagination);
+        $this->merge_data('blogs', $blogs);
+        $this->merge_data('tag', $tag->name);
+        return view('frontend.page.blog-tag', $this->getEntry());
+    }
+
     //
     function index(Request $request){
 
@@ -45,11 +77,17 @@ class BlogController extends ContentController
         return view('frontend.page.blog', $this->getEntry());
     }
 
-    function print_struck(Request $request){
-        $pdf = Pdf::loadView('pdf.struck', [
-            'carts' => $request->params, 
-        ]);
-        Pdf::setOption(['isRemoteEnabled' => true]);
-        return $pdf->download('hellonikah_invoice.pdf');
+    function detail($slug){
+        $blog = Blog::where('slug', $slug)->first();
+
+        $next_blog = Blog::where('id', '>', $blog->id)->orderBy('id', 'ASC')->first();
+        $prev_blog = Blog::where('id', '<', $blog->id)->orderBy('id', 'DESC')->first();
+
+        $this->merge_data('blog', $blog);
+        $this->merge_data('next_blog', $next_blog);
+        $this->merge_data('prev_blog', $prev_blog);
+        return view('frontend.page.blog-detail', $this->getEntry());
     }
+
+
 }

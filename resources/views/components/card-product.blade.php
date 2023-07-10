@@ -20,7 +20,7 @@
 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
     <div class="ec-product-inner">
         <div class="ec-pro-image-outer">
-            <div class="ec-pro-image">
+            <div class="ec-pro-image" style="height: 240px; background:#fff;">
                 <a href="product-left-sidebar.html" class="image">
                     <img class="main-image"
                         src="{{ URL::asset('storage/images/product/'.$images) }}" alt="Product" />

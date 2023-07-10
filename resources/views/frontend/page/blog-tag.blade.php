@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="ec-blogs-rightside col-lg-12 col-md-12">
-
+                    <h2 class="mb-5">{{ $tag }}</h2>
                     <!-- Blog content Start -->
                     <div class="ec-blogs-content">
                         <div class="ec-blogs-inner" style="background-color: transparent !important;">
@@ -79,12 +79,13 @@
         </div>
         <div class="col-md-5">
             <div id="ec-popnews-box-content">
-                <h2>Subscribe Newsletter. 111</h2>
-                <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p>
+                <h2>Masukan Ke Keranjang Sekarang !!!</h2>
+                {{-- <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p> --}}
                 {{-- <form id="ec-popnews-form" action="#" method="post">
                     <input type="email" name="newsemail" placeholder="Email Address" required />
                     <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
                 </form> --}}
+                <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
 
             </div>
         </div>

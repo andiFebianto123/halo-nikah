@@ -25,14 +25,16 @@
 
    <!-- css Icon Font -->
    <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
-   <link rel="stylesheet" href="{{ URL::asset('assets/css/custom-ckeditor.css') }}" />
     <style>
         #ec-mobile-menu .ec-menu-content ul li.active > a{
             color: #c6ac71 !important;
         }
+
     </style>
    @yield('style')
    @stack('custom-styles')
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/custom-ckeditor.css') }}" />
+   <link rel="stylesheet" href="{{ URL::asset('assets/css/ck-content.css') }}" />
    @vite(['resources/js/primary.js'])
 </head>
 <body class="body-bg-3">

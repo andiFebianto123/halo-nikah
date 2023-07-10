@@ -27,6 +27,6 @@ class Blog extends Model
     }
 
     function tags(){
-        return $this->hasManyThrough(Tag::class, BlogTag::class);
+        return $this->belongsToMany(Tag::class, BlogTag::class, 'blog_id', 'tag_id');
     }
 }

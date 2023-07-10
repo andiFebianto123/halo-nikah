@@ -11,7 +11,7 @@ class ContentController extends Controller
     public $datalist = [];
 
     function setTitle($title){
-        $this->title = $title.' - Hallo Nikah';
+        $this->title = $title.' - Hello Nikah';
     }
 
     function merge_data($name, $value){

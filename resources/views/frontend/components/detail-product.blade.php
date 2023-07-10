@@ -80,7 +80,7 @@
             @endif
 
             <div class="ec-quickview-desc">
-                {{ $item->detail }}
+                {!! $item->detail !!}
             </div>
             <div class="ec-quickview-price">
                 <span class="new-price">{!! price_format($item->price) !!}</span>

@@ -4,11 +4,12 @@ use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\ApiCoreController;
-use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PackageProductController;
 use App\Http\Controllers\Admin\CategorieController;
@@ -18,10 +19,9 @@ use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
-use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\BlogController as BlogFrontend;
 use App\Http\Controllers\VendorController as VendorFrontend;
 use App\Http\Controllers\ProductController as ProductFrontend;
-use App\Http\Controllers\BlogController as BlogFrontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +57,9 @@ Route::get('cart', [CartController::class, 'index']);
 Route::get('cart/print', [CartController::class, 'print_struck']);
 
 // blog
-Route::get('blogs', [BlogFrontend::class, 'index']);
+Route::get('blog', [BlogFrontend::class, 'index']);
+Route::get('blog/{slug}', [BlogFrontend::class, 'detail']);
+Route::get('blog/tag/{slug}', [BlogFrontend::class, 'tags']);
 
 // API
 Route::prefix('api')->group(function(){

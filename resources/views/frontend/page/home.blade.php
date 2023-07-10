@@ -174,14 +174,14 @@
                     <div class="ec-blog-block">
                         <div class="ec-blog-inner">
                             <div class="ec-blog-image">
-                                <a href="blog-detail-left-sidebar.html">
+                                <a href="{{ url('/blog/'.$blog->slug) }}">
                                     <img class="blog-image" src="{{ URL::asset('storage/images/permalink/'.$blog->image) }}"
                                         alt="Blog" style="width:339px; height:191px;" />
                                 </a>
                             </div>
                             <div class="ec-blog-content">
                                 <h5 class="ec-blog-title"><a
-                                        href="blog-detail-left-sidebar.html">{!! title_blog($blog->title, 35) !!}</a></h5>
+                                        href="{{ url('/blog/'.$blog->slug) }}">{!! title_blog($blog->title, 35) !!}</a></h5>
 
                                         <div class="ec-blog-date">By <span>{{ $blog->user->name }}</span> / {{ $time }}</div>
                                     </div>
@@ -207,13 +207,13 @@
             </div>
             <div class="">
                 <div id="ec-popnews-box-content">
-                    <h2>Subscribe Newsletter. 111</h2>
-                    <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p>
+                    {{-- <h2>Masukan Ke Keranjang Sekarang !!!</h2> --}}
+                    {{-- <p>Subscribe the ekka ecommerce to get in touch and get the future update. </p> --}}
                     {{-- <form id="ec-popnews-form" action="#" method="post">
                         <input type="email" name="newsemail" placeholder="Email Address" required />
                         <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
                     </form> --}}
-
+                    <button type="button" class="btn btn-primary" name="subscribe">Dapatkan Sekarang !!!</button>
                 </div>
             </div>
         </div>

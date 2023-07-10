@@ -21,6 +21,8 @@ class ProductController extends ContentController
 
     function index(Request $request){
 
+        $this->setTitle('Product');
+
         // $kategories = Kategorie::where('name', '!=', 'Paket Lengkap')->where('status', 1)->get();
         $kategories = Kategorie::where('status', 1)->get();
 

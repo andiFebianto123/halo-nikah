@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Kategorie;
+use App\Models\Blog;
 // use App\Models\Product;
+use App\Models\Kategorie;
 use App\Models\RangePrice;
 use App\Models\TopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContentController;
-use App\Models\Blog;
 
 
 class HomeController extends ContentController

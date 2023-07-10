@@ -192,7 +192,7 @@
                             <li class="{{ (request()->is('products*')) ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>
                             <li class="{{ (request()->is('package*')) ? 'active' : '' }}"><a href="{{ url('/package') }}">Products Package</a></li>
                             <li class="{{ (request()->is('vendors*')) ? 'active' : '' }}"><a href="{{ url('/vendors') }}">Vendors</a></li>
-                            <li class="{{ (request()->is('blogs*')) ? 'active' : '' }}"><a href="{{ url('/blogs') }}">Blog</a></li>
+                            <li class="{{ (request()->is('blog*')) ? 'active' : '' }}"><a href="{{ url('/blog') }}">Blog</a></li>
                             <li class="{{ (request()->is('cart*')) ? 'active' : '' }}"><a href="{{ url('/cart') }}">Keranjang Anda</a></li>
                             {{-- <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                 <ul class="sub-menu">
@@ -368,7 +368,7 @@
                     <li class="{{ (request()->is('products*')) ? 'active' : '' }}"><a href="{{ url('/products') }}">Products</a></li>   
                     <li class="{{ (request()->is('package*')) ? 'active' : '' }}"><a href="{{ url('/package') }}">Products Package</a></li>
                     <li class="{{ (request()->is('vendors*')) ? 'active' : '' }}"><a href="{{ url('/vendors') }}">Vendors</a></li>
-                    <li class="{{ (request()->is('blogs*')) ? 'active' : '' }}"><a href="{{ url('/blogs') }}">Blog</a></li>
+                    <li class="{{ (request()->is('blog*')) ? 'active' : '' }}"><a href="{{ url('/blog') }}">Blog</a></li>
                     <li class="{{ (request()->is('cart*')) ? 'active' : '' }}"><a href="{{ url('/cart') }}">Keranjang Anda</a></li>        
                 </ul>
             </div>
