@@ -36,7 +36,7 @@
 						<div class="card-header bg-primary">
 							<div class="ec-brand">
 								<a href="index.html" title="Ekka">
-									<img class="ec-brand-icon" src="{{ URL::asset('assets/img/logo/logo-login.png') }}" alt="" />
+									<img class="ec-brand-icon" src="{{ URL::asset('assets/images/logo/HELLOGO.png') }}" alt="" />
 								</a>
 							</div>
 						</div>

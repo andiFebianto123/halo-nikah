@@ -197,13 +197,14 @@
 @endsection
 
 @push('modal')
+    @if ($popup)
     <!-- Newsletter Modal Start -->
     <div id="ec-popnews-bg"></div> 
     <div id="ec-popnews-box" style="width: 90%;max-width: 500px;">
         <div id="ec-popnews-close"><i class="ecicon eci-close"></i></div>
         <div class="row">
             <div class="col disp-no-767" style="display:block !important;">
-                <img src="assets/images/banner/newsletter-8.png" alt="newsletter">
+                <img src="{{ URL::asset('storage/images/permalink/'.$popup->img) }}" alt="newsletter">
             </div>
             <div class="">
                 <div id="ec-popnews-box-content">
@@ -213,12 +214,16 @@
                         <input type="email" name="newsemail" placeholder="Email Address" required />
                         <button type="button" class="btn btn-primary" name="subscribe">Subscribe</button>
                     </form> --}}
-                    <button type="button" class="btn btn-primary" name="subscribe">Dapatkan Sekarang !!!</button>
+                    <a href="{{ $popup->url }}">
+                        <button type="button" class="btn btn-primary" name="subscribe">Dapatkan Sekarang !!!</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Newsletter Modal end -->
+    @endif
+    
 @endpush
 
 @section('style')

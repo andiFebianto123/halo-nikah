@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TopProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\SliderBannerController;
 use App\Http\Controllers\Admin\SpecialProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BlogController as BlogFrontend;
 use App\Http\Controllers\VendorController as VendorFrontend;
 use App\Http\Controllers\ProductController as ProductFrontend;
@@ -84,6 +85,10 @@ Route::prefix('admin')->group(function () {
 
         // dashboard
         Route::get('/', [DashboardController::class, 'index']);
+
+        // profile
+        Route::get('profile', [UserController::class, 'index']);
+        Route::post('profile', [UserController::class, 'update']);
 
         // kategori
         Route::prefix('kategori')->group(function() {

@@ -10,6 +10,7 @@ use App\Models\RangePrice;
 use App\Models\TopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ContentController;
+use App\Models\Popup;
 
 
 class HomeController extends ContentController
@@ -39,6 +40,10 @@ class HomeController extends ContentController
         $price_range = RangePrice::orderBy('min', 'ASC')->get();
 
         $blogs = Blog::orderBy('id', 'DESC')->limit(6)->get();
+
+        $popup = Popup::where('status', 1)->orderBy('id', 'DESC')->first();
+
+        $this->merge_data('popup', $popup);
 
         $this->merge_data('blogs', $blogs);
 

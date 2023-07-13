@@ -117,7 +117,7 @@
     <div id="information">
         <h3>Contact Custommer Service :</h3>
         <span>Puji Rahayu (087588988493)</span><br>
-        <span>Alvien (087588988493)</span>
+        <span>Alvin Gandhi (087588988493)</span>
     </div>
     <div id="description">
         <span>

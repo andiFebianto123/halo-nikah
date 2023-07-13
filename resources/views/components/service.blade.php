@@ -7,7 +7,7 @@
     <div class="ec_ser_content ec_ser_content_1 col-sm-12">
         <div class="ec_ser_inner">
             <div class="ec-service-image">
-                <i class="fi fi-ts-truck-moving"></i>
+                <i class="fi fi-ts-stars"></i>
             </div>
             <div class="ec-service-desc">
                 <h2>Worldwide Delivery</h2>
