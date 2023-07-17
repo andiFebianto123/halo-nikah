@@ -69,19 +69,20 @@
                 <ul>
                     <!-- Start Single Contact List -->
                     <li>
-                        <a class="ec-list" data-number="918866774266"
+                        <a href="https://api.whatsapp.com/send?phone=6282135207235" class="ec-list" data-number="6282135207235"
                             data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                             <div class="d-flex bd-highlight">
                                 <!-- Profile Picture -->
                                 <div class="ec-img-cont">
-                                    <img src="{{ URL::asset('assets/images/whatsapp/profile_01.jpg') }}" class="ec-user-img"
+                                    <img src="{{ URL::asset('storage/images/permalink/men-profile.png') }}" class="ec-user-img"
                                         alt="Profile image">
-                                    <span class="ec-status-icon"></span>
+                                    
+                                    <span class="ec-status-icon ec-online"></span>
                                 </div>
                                 <!-- Display Name & Last Seen -->
                                 <div class="ec-user-info">
-                                    <span>Sahar Darya</span>
-                                    <p>Sahar left 7 mins ago</p>
+                                    <span>Alvin Ghandi</span>
+                                    <p>Online</p>
                                 </div>
                                 <!-- Chat iCon -->
                                 <div class="ec-chat-icon">
@@ -95,19 +96,19 @@
     
                     <!-- Start Single Contact List -->
                     <li>
-                        <a class="ec-list" data-number="918866774266"
+                        <a href="https://api.whatsapp.com/send?phone=6285702846871" class="ec-list" data-number="6285702846871"
                             data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                             <div class="d-flex bd-highlight">
                                 <!-- Profile Picture -->
                                 <div class="ec-img-cont">
-                                    <img src="{{ URL::asset('assets/images/whatsapp/profile_04.jpg') }}" class="ec-user-img"
+                                    <img src="{{ URL::asset('storage/images/permalink/women-profile.png') }}" class="ec-user-img"
                                         alt="Profile image">
-                                    <span class="ec-status-icon ec-offline"></span>
+                                    <span class="ec-status-icon ec-online"></span>
                                 </div>
                                 <!-- Display Name & Last Seen -->
                                 <div class="ec-user-info">
-                                    <span>Khadija Mehr</span>
-                                    <p>Khadija left 50 mins ago</p>
+                                    <span>Puji Rahayu</span>
+                                    <p>Online</p>
                                 </div>
                                 <!-- Chat iCon -->
                                 <div class="ec-chat-icon">

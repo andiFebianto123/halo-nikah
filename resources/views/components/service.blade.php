@@ -7,22 +7,23 @@
     <div class="ec_ser_content ec_ser_content_1 col-sm-12">
         <div class="ec_ser_inner">
             <div class="ec-service-image">
-                <i class="fi fi-ts-stars"></i>
+                <i class="fi fi-rr-star"></i>
             </div>
             <div class="ec-service-desc">
-                <h2>Worldwide Delivery</h2>
-                <p>For Order Over $100</p>
+                <h2>Vendor & Produk Pernikahan Terlengkap</h2>
+                <h2>di Semarang</h2>
+                {{-- <p>For Order Over $100</p> --}}
             </div>
         </div>
     </div>
     <div class="ec_ser_content ec_ser_content_2 col-sm-12">
         <div class="ec_ser_inner">
             <div class="ec-service-image">
-                <i class="fi fi-ts-tachometer-fast"></i>
+                <i class="fi fi-rr-heart"></i>
             </div>
             <div class="ec-service-desc">
-                <h2>Next Day delivery</h2>
-                <p>UK Orders Only</p>
+                <h2>Sesuaikan Pesanan dengan Impian Anda</h2>
+                <p></p>
             </div>
         </div>
     </div>
@@ -32,30 +33,19 @@
                 <i class="fi fi-ts-circle-phone"></i>
             </div>
             <div class="ec-service-desc">
-                <h2>Best Online Support</h2>
-                <p>Hours: 8AM -11PM</p>
+                <h2>Respon Cepat Melalui WhatsApp</h2>
+                {{-- <p>Hours: 8AM -11PM</p> --}}
             </div>
         </div>
     </div>
     <div class="ec_ser_content ec_ser_content_4 col-sm-12">
         <div class="ec_ser_inner">
             <div class="ec-service-image">
-                <i class="fi fi-ts-badge-percent"></i>
+                <i class="fi fi-rr-room-service"></i>
             </div>
             <div class="ec-service-desc">
-                <h2>Return Policy</h2>
-                <p>Easy & Free Return</p>
-            </div>
-        </div>
-    </div>
-    <div class="ec_ser_content ec_ser_content_5 col-sm-12">
-        <div class="ec_ser_inner">
-            <div class="ec-service-image">
-                <i class="fi fi-ts-donate"></i>
-            </div>
-            <div class="ec-service-desc">
-                <h2>30% money back</h2>
-                <p>For Order Over $100</p>
+                <h2>Gratis Konsultasi Sebelum Membeli</h2>
+                {{-- <p>Easy & Free Return</p> --}}
             </div>
         </div>
     </div>
