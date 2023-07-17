@@ -52,12 +52,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @error('img')
+                                        <p class="msg-error">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
-                        @error('img')
-                            <p class="msg-error">{{ $message }}</p>
-                        @enderror
                     </div>
                 </div>
             </div>

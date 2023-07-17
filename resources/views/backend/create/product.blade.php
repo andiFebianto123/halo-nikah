@@ -114,6 +114,18 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @error('product_image_1')
+                                                <p class="msg-error">{{ $message }}</p>
+                                            @enderror
+                                            @error('product_image_2')
+                                                <p class="msg-error">{{ $message }}</p>
+                                            @enderror
+                                            @error('product_image_3')
+                                                <p class="msg-error">{{ $message }}</p>
+                                            @enderror
+                                            @error('product_image_4')
+                                                <p class="msg-error">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

@@ -12,15 +12,12 @@
 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 ec-product-content">
     <div class="ec-product-inner">
         <div class="ec-pro-image-outer">
-            <div class="ec-pro-image">
-                <a href="product-left-sidebar.html" class="image">
-                    <img class="main-image"
-                        src="{{ URL::asset('storage/images/permalink/'.$images) }}" alt="Product" />
-                    {{-- <img class="hover-image"
-                        src="assets/images/product-image/88_1.jpg" alt="Product" /> --}}
-                </a>
-                {{-- <span class="percentage">12%</span> --}}
-            </div>
+            <a href="{{ url('/vendors/'.$item->id) }}" class="image">
+                <div class="ec-pro-image">
+                        <img class="main-image"
+                            src="{{ URL::asset('storage/images/permalink/'.$images) }}" alt="Product" />
+                </div>
+            </a>
         </div>
         <div class="ec-pro-content">
             <a href="{{ url('/vendors/'.$item->id) }}">

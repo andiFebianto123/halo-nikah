@@ -39,7 +39,7 @@
                             <li class="list-inline-item"><a class="hdr-instagram" href="#"><i class="ecicon eci-instagram"></i></a></li>
                             <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i class="ecicon eci-linkedin"></i></a></li>
                         </ul> --}}
-                        <div class="ec-page-description ec-page-description-info mt-4">
+                        <div class="ec-page-description ec-page-description-info mt-4" @if ($vendor->image_banner) style="background-image:url('{{ asset('storage/images/permalink/'.$vendor->image_banner) }}'); background-blend-mode:normal;" @endif>
                             <div class="ec-page-block">
                                 <div class="ec-catalog-vendor">
                                     <img src="{{ URL::asset('storage/images/permalink/'.$vendor->image_profile) }}" alt="vendor img">

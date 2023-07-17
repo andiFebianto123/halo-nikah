@@ -61,6 +61,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @error('image_banner')
+                                        <p class="msg-error">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -95,6 +98,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @error('image_profile')
+                                                    <p class="msg-error">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

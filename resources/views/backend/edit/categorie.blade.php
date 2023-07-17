@@ -57,6 +57,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @error('image')
+                                            <p class="msg-error">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-8">

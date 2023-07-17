@@ -51,8 +51,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @error('image')
+                                                <p class="msg-error">{{ $message }}</p>
+                                            @enderror
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="ec-vendor-upload-detail">

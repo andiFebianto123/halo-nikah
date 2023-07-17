@@ -54,7 +54,6 @@
                                             @error('img')
                                                     <p class="msg-error">{{ $message }}</p>
                                             @enderror
-
                                         </div>
                                     </div>
                                 </div>

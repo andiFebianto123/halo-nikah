@@ -358,7 +358,7 @@ class VendorController extends AdminController
                     $fileNameToStoreBanner = $filename.'_'.time().'.'.$extension;
                     $path = $image_banner->storeAs('public/images/permalink',$fileNameToStoreBanner);
             }else{
-                    $fileNameToStoreBanner = 'default-banner.jpg';
+                    $fileNameToStoreBanner = null;
             }
 
         // image profile vendor upload
