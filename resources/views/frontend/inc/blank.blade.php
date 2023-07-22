@@ -140,7 +140,7 @@
                     <div class="footer-copy">
                         <div class="footer-bottom-copy ">
                             <div class="ec-copy">Copyright © 2023 <a class="site-name" href="{{ url('/') }}">Hello Nikah</a> all
-                                rights reserved. Powered by Hallo Nikah</div>
+                                rights reserved. Powered by Hello Nikah</div>
                         </div>
                     </div>
                     <!-- Footer Copyright End -->

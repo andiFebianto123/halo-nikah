@@ -27,7 +27,7 @@
    <link rel="stylesheet" href="{{ URL::asset('assets/css/vendor/ecicons.min.css') }}" />
     <style>
         #ec-mobile-menu .ec-menu-content ul li.active > a{
-            color: #c6ac71 !important;
+            color: #63AD9C !important;
         }
 
     </style>
@@ -145,7 +145,7 @@
                             class="ec-cart-noti ec-header-count ec-cart-count cart-count-lable">0</span></a>
                 </div>
                 <div class="ec-nav-panel-icons">
-                    <a href="index.html" class="ec-header-btn"><i class="fi-rr-home"></i></a>
+                    <a href="{{ url('/') }}" class="ec-header-btn"><i class="fi-rr-home"></i></a>
                 </div>
                 {{-- <div class="ec-nav-panel-icons">
                     <a href="wishlist.html" class="ec-header-btn"><i class="fi-rr-heart"></i><span class="ec-cart-noti">0</span></a>

@@ -78,6 +78,10 @@
     text-align: center;
 }
 
+#banner-simulasi a:hover {
+    color: #63AD9C !important;
+}
+
 .btn-list {
     transition: 0.3s;
     margin-bottom: 12px;

@@ -101,8 +101,8 @@
                     <div class="align-self-center">
                         <div class="header-logo">
                             
-                            <a href="{{ url('/') }}"><img src="{{ URL::asset('assets/images/logo/HELLOGO.png') }}" alt="Site Logo" /><img
-                                class="dark-logo" src="{{ URL::asset('assets/images/logo/HELLOGO.png') }}" alt="Site Logo"
+                            <a href="{{ url('/') }}"><img src="{{ URL::asset('assets/images/logo/hello_nikah.png') }}" alt="Site Logo" /><img
+                                class="dark-logo" src="{{ URL::asset('assets/images/logo/hello_nikah.png') }}" alt="Site Logo"
                                 style="display: none;" /></a>
                         </div>
                     </div>
@@ -161,8 +161,8 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="{{ url('/') }}"><img src="{{ URL::asset('assets/images/logo/HELLOGO.png') }}" alt="Site Logo" /><img
-                            class="dark-logo" src="{{ URL::asset('assets/images/logo/HELLOGO.png') }}" alt="Site Logo"
+                        <a href="{{ url('/') }}"><img src="{{ URL::asset('assets/images/logo/hello_nikah.png') }}" alt="Site Logo" /><img
+                            class="dark-logo" src="{{ URL::asset('assets/images/logo/hello_nikah.png') }}" alt="Site Logo"
                             style="display: none;" /></a>
                     </div>
                 </div>
