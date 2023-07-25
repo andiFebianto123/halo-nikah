@@ -41,7 +41,6 @@
             $percentage = ($harga / $item->discounted_price) * 100;
             $percentage = intval($percentage);
         }
-        // dd($percentage);
     @endphp
 
     <!-- Sart Single product -->
@@ -132,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="single-pro-desc single-pro-desc-no-sidebar">
-                                    <div class="single-pro-content">
+                                    <div class="single-pro-content mt-3">
                                         <h5 class="ec-single-title">{{ $item->name }} @if ($special_product != null) - <strong><span class="badge" style="background-color:#FFD700 !important;">{{ strtoupper($special_product->type) }}</span></strong> @endif</h5>
                                         <div class="mb-1">
                                             <span>

@@ -1,7 +1,7 @@
 @php
     // dd($datalist);
 @endphp
-<div id="custom-banner-{{ $id }}" class="ec-slider swiper-container main-slider-nav main-slider-dot">
+<div id="custom-banner-{{ $id }}" class="ec-slider swiper-container main-slider-nav main-slider-dot mt-4">
     <!-- Main slider -->
     <div class="swiper-wrapper">
         @foreach ($datalist as $item)

@@ -14,12 +14,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     
     <title>{{ (isset($title)) ? $title : 'Hello Nikah' }}</title>
-    <meta name="keywords" content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+    <meta name="keywords" content="wedding, wedding organizer, wedding planner, wedding shop, wedding store, hellonikah" />
     <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
-    <meta name="author" content="ashishmaraviya">
+    <meta name="author" content="hellonikah official">
     
    <!-- site Favicon -->
-   <link rel="icon" href="{{ URL::asset('assets/images/logo/mini-logo.png') }}" sizes="32x32" />
+   <link rel="icon" href="{{ URL::asset('assets/images/favicon/logo hello nikah 1.png') }}" sizes="32x32" />
    <link rel="apple-touch-icon" href="{{ URL::asset('assets/images/logo/mini-logo.png') }}" />
    <meta name="msapplication-TileImage" content="{{ URL::asset('assets/images/logo/mini-logo.png') }}" />
 
@@ -37,7 +37,7 @@
    <link rel="stylesheet" href="{{ URL::asset('assets/css/ck-content.css') }}" />
    @vite(['resources/js/primary.js'])
 </head>
-<body class="body-bg-3">
+<body class="body-bg-4">
     {{-- <div id="ec-overlay">
         <div class="ec-ellipsis">
             <div></div>
